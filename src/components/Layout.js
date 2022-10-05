@@ -6,6 +6,7 @@ import client from "./ApolloClient";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { ApolloProvider } from "@apollo/client";
+import TopHeader from "./TopHeader";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -19,6 +20,7 @@ const Layout = (props) => {
           <Head>
             <title>Woocommerce React Theme</title>
           </Head>
+          <TopHeader />
           <Header />
           {props.children}
           <Footer />
