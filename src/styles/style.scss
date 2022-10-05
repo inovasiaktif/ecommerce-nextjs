@@ -1,5 +1,45 @@
 body {
   width: 100%;
+  font-family: -apple-system, Helvetica Neue, Helvetica, Roboto, Droid Sans, Arial, sans-serif;
+  font-weight: 400;
+  font-size: .875rem;
+}
+
+.product-price {
+  font-family: -apple-system, HelveticaNeueMedium, HelveticaNeue-Medium, Helvetica Neue Medium, Helvetica Neue, Roboto, Droid Sans, Arial Bold, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: #00a4f7;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-regular-price {
+  text-decoration: line-through;
+  align-items: center;
+  color: rgba(0, 0, 0, .26);
+  font-weight: 200;
+  margin-top: 0.125rem;
+}
+
+.product-discount {
+  color: #00a4f7;
+}
+
+.product-view-title {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, .87);
+  word-break: break-word;
+  user-select: text;
+  margin-bottom: 10px;
 }
 
 .product {
@@ -29,14 +69,17 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+
   &__title {
     line-height: 1.2;
     max-width: 254px;
   }
+
   &__description {
     margin-top: 10px;
     padding-bottom: 40px;
   }
+
   &__link {
     padding-top: 20px;
     border-top: 1px solid #ccc;
@@ -72,10 +115,12 @@ body {
 
 .cart-products,
 .checkout-cart {
+
   th,
   td {
     padding: 10px 0;
   }
+
   tr {
     border-bottom: 1px solid #ccc;
   }
@@ -89,6 +134,7 @@ body {
 .main-title {
   position: relative;
   text-align: center;
+
   &:before {
     content: "";
     position: absolute;
@@ -99,6 +145,7 @@ body {
     background: #222;
     z-index: -1;
   }
+
   &:after {
     content: "";
     position: absolute;
