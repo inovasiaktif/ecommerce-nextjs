@@ -11,7 +11,7 @@ const Nav = () => {
 			<div className="flex items-center justify-between flex-wrap container mx-auto">
 
 				<div className="flex items-center flex-shrink-0 text-black mr-20">
-					<img src="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-logo-header.png" width={150} />
+					<img src="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-logo-header.png" width={180} />
 				</div>
 
 				{/*Menu button*/}
