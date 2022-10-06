@@ -1,4 +1,5 @@
 import { isEmpty } from "lodash";
+import React from "react";
 
 const Price = ({ regularPrice = 0, salesPrice }) => {
 

@@ -1,19 +1,19 @@
 import { isEmpty, isArray } from 'lodash';
 import Link from "next/link";
-import {useState, useEffect, useRef} from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-const HeroCarousel = ({heroCarousel}) => {
+const HeroCarousel = ({ heroCarousel }) => {
 
-    if ( isEmpty(heroCarousel) || ! isArray( heroCarousel ) ) {
-    	return null;
+    if (isEmpty(heroCarousel) || !isArray(heroCarousel)) {
+        return null;
     }
 
     const autoPlay = true;
     const slideDuration = 2; // in seconds
-    const activeIndexRef = useRef( { activeIndex: 0 } );
-    const slideRef = useRef( 0 );
-    const [ slide, setSlide ] = useState( 0 );
-    const [ restartSlide, setRestartSlide ] = useState( 0 );
+    const activeIndexRef = useRef({ activeIndex: 0 });
+    const slideRef = useRef(0);
+    const [slide, setSlide] = useState(0);
+    const [restartSlide, setRestartSlide] = useState(0);
     const { activeIndex } = activeIndexRef.current;
 
     /**
@@ -21,7 +21,7 @@ const HeroCarousel = ({heroCarousel}) => {
      */
     const nextSlide = () => {
 
-        if ( 1 === heroCarousel.length ) {
+        if (1 === heroCarousel.length) {
             return null;
         }
 
@@ -30,10 +30,10 @@ const HeroCarousel = ({heroCarousel}) => {
          * and all slides are finished playing,
          * set the activeIndex to one and restart the slide from start.
          */
-        if ( activeIndexRef.current.activeIndex === heroCarousel.length - 1 ) {
+        if (activeIndexRef.current.activeIndex === heroCarousel.length - 1) {
 
             activeIndexRef.current.activeIndex = 0;
-            setRestartSlide( restartSlide + 1 );
+            setRestartSlide(restartSlide + 1);
 
         } else {
 
@@ -44,14 +44,14 @@ const HeroCarousel = ({heroCarousel}) => {
         }
 
         slideRef.current = slideRef.current + 1;
-        setSlide( slideRef.current );
+        setSlide(slideRef.current);
 
     };
 
     useEffect(() => {
-        if ( autoPlay ) {
-            const interval = setInterval(() => nextSlide(), slideDuration * 1000 );
-            return () => clearInterval( interval );
+        if (autoPlay) {
+            const interval = setInterval(() => nextSlide(), slideDuration * 1000);
+            return () => clearInterval(interval);
         }
     }, [])
 
@@ -59,10 +59,10 @@ const HeroCarousel = ({heroCarousel}) => {
         <div className="banner flex flex-col sm:flex-row justify-between overflow-hidden">
             <div className="banner-img sm:w-8/12">
                 {
-                    heroCarousel.map( ( item, index ) => {
-                        const opacity = ( activeIndex === index || 1 === heroCarousel.length ) ? 'opacity-100' : 'opacity-0';
+                    heroCarousel.map((item, index) => {
+                        const opacity = (activeIndex === index || 1 === heroCarousel.length) ? 'opacity-100' : 'opacity-0';
                         return (
-                            <div key={item?.id}className={`${opacity} banner-img-container absolute top-0 left-0`}>
+                            <div key={item?.id} className={`${opacity} banner-img-container absolute top-0 left-0`}>
                                 <img
                                     src={item?.image?.sourceUrl} srcSet={item?.image?.srcSet} loading="lazy"
                                 />

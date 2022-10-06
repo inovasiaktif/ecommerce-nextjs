@@ -1,14 +1,15 @@
 import ProductCategoryBlock from "./ParentCategoryBlock";
+import React from "react";
 
-const ParentCategoriesBlock = ( props ) => {
+const ParentCategoriesBlock = (props) => {
 
 	const { productCategories } = props || {};
 
 	return (
 		<div className="product-categories grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
-			{ productCategories.length ? (
-				productCategories.map( ( productCategory, index ) => <ProductCategoryBlock key={ productCategory?.id ?? index }  category={ productCategory }/> )
-			) : null }
+			{productCategories.length ? (
+				productCategories.map((productCategory, index) => <ProductCategoryBlock key={productCategory?.id ?? index} category={productCategory} />)
+			) : null}
 		</div>
 	)
 

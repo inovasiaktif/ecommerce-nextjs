@@ -1,8 +1,12 @@
 import "../src/styles/style.scss";
 import "../src/styles/main.scss";
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import React from "react";
 
 NProgress.configure({ showSpinner: false });
 Router.events.on('routeChangeStart', () => NProgress.start());

@@ -1,9 +1,19 @@
+// Abstracts
+@import "abstracts/variables";
+
+// Layout
+@import "layout/top-header";
+@import "layout/menu";
+
+// Components
+@import "components/carousel";
+
+// Tailwindcss
 @import "~tailwindcss/base";
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
 
-// NProgress style.
-@import 'nprogress/nprogress.css';
+// NProgress
+@import "nprogress/nprogress.css";
 
-// Layout
-@import "layout/top-header";
+@import "react-responsive-carousel/lib/styles/carousel.min.css";

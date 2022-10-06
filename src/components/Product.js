@@ -3,6 +3,7 @@ import AddToCartButton from '../components/cart/AddToCartButton';
 import Price from "./single-product/price";
 import Image from "../image";
 import { DEFAULT_PRODUCT_HOME_IMG_URL } from "../constants/urls";
+import React from "react";
 
 const Product = (props) => {
 	const { product } = props;

@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import Image from "../../../image";
-import {DEFAULT_CATEGORY_IMG_URL} from "../../../constants/urls";
+import { DEFAULT_CATEGORY_IMG_URL } from "../../../constants/urls";
+import React from "react";
 
-const ParentCategoryBlock = ( props ) => {
+const ParentCategoryBlock = (props) => {
 
 	const { category } = props;
 
@@ -14,7 +15,7 @@ const ParentCategoryBlock = ( props ) => {
 						className="object-cover h-40 md:h-64"
 						layout="fill"
 						containerClassNames="w-96 h-56"
-						sourceUrl={ category?.image?.sourceUrl ?? '' }
+						sourceUrl={category?.image?.sourceUrl ?? ''}
 						defaultImgUrl={DEFAULT_CATEGORY_IMG_URL}
 						altText={category?.image?.altText ?? category.slug}
 					/>

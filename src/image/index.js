@@ -2,7 +2,8 @@ import Img from 'next/image';
 
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {DEFAULT_IMG_URL} from "../constants/urls";
+import { DEFAULT_IMG_URL } from "../constants/urls";
+import React from "react";
 
 /**
  * Image Component.
@@ -14,10 +15,10 @@ import {DEFAULT_IMG_URL} from "../constants/urls";
  *
  * @return {jsx}
  */
-const Image = ( props ) => {
-    const {altText, title, width, height, sourceUrl, className, layout, objectFit, containerClassNames, showDefault, defaultImgUrl, ...rest} = props;
+const Image = (props) => {
+    const { altText, title, width, height, sourceUrl, className, layout, objectFit, containerClassNames, showDefault, defaultImgUrl, ...rest } = props;
 
-    if ( ! sourceUrl && ! showDefault ) {
+    if (!sourceUrl && !showDefault) {
         return null;
     }
 
@@ -27,24 +28,24 @@ const Image = ( props ) => {
      * That's we need to wrap our image in a container and give it a height and width.
      * Notice that in this case, the given height and width is being used for container and not img.
      */
-    if ( 'fill' === layout ) {
+    if ('fill' === layout) {
         const attributes = {
             alt: altText || title,
-            src: sourceUrl || ( showDefault ? ( defaultImgUrl || DEFAULT_IMG_URL ) : '' ),
+            src: sourceUrl || (showDefault ? (defaultImgUrl || DEFAULT_IMG_URL) : ''),
             layout: 'fill',
-            className: cx( 'object-cover', className ),
+            className: cx('object-cover', className),
             ...rest
         };
 
         return (
-            <div className={cx( 'relative', containerClassNames ) }>
-                <Img {...attributes}/>
+            <div className={cx('relative', containerClassNames)}>
+                <Img {...attributes} />
             </div>
         );
     } else {
         const attributes = {
             alt: altText || title,
-            src: sourceUrl || ( showDefault ? DEFAULT_IMG_URL : '' ),
+            src: sourceUrl || (showDefault ? DEFAULT_IMG_URL : ''),
             width: width || 'auto',
             height: height || 'auto',
             className,

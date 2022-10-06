@@ -1,0 +1,45 @@
+.menu {
+    padding: 10px 25px;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.cart-icon-container {
+    padding-left: 15px;
+}
+
+.user-icon-container {
+    padding-left: 15px;
+}
+
+.search-input {
+    width: 100%;
+}
+
+.below-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.below-header .thaps-search-form .thaps-search-autocomplete {
+    min-height: 39px;
+    line-height: 25px;
+    border: none !important;
+    font-size: 14px;
+    width: 100%;
+    padding: 0.3rem 0.8rem;
+    margin: 0;
+    border-radius: 0 !important;
+    overflow: visible;
+}
