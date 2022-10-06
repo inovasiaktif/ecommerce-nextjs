@@ -7,6 +7,14 @@ body {
   background: #efefef;
 }
 
+*,
+::before,
+::after {
+  margin: 2.75rem auto 0;
+  max-width: 37.5rem;
+  margin-top: 0;
+}
+
 .product-price {
   font-family: -apple-system, HelveticaNeueMedium, HelveticaNeue-Medium, Helvetica Neue Medium, Helvetica Neue, Roboto, Droid Sans, Arial Bold, Arial, sans-serif;
   font-weight: 500;
