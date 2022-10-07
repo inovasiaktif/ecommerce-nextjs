@@ -2,7 +2,7 @@
 
     /* width */
     ::-webkit-scrollbar {
-        height: 0.25rem;
+        height: 0.15rem;
     }
 
     /* Track */
@@ -30,6 +30,8 @@
     }
 
     .category-name {
+        width: 85px;
+        margin: 0 auto;
         display: -webkit-box;
         text-overflow: ellipsis;
         -webkit-box-orient: vertical;
