@@ -8,11 +8,9 @@ import { Carousel } from 'react-responsive-carousel';
 import React, { useLayoutEffect, useState } from 'react';
 
 export default function Home(props) {
-
 	const { products, productCategories, heroCarousel } = props || {};
 	const [width] = useWindowSize();
 
-	console.log(Math.floor((width / 600) * 100))
 	const percentage = Math.floor((width / 600) * 100)
 	let carouselHeightPercent = 100;
 	if (percentage < 100) {
@@ -24,7 +22,7 @@ export default function Home(props) {
 	return (
 		<Layout>
 			{/*Hero Carousel*/}
-			<Carousel interval={5000} autoPlay={true} showStatus={false} showThumbs={false} showArrows={false}>
+			<Carousel infiniteLoop={true} interval={5000} autoPlay={true} showStatus={false} showThumbs={false} showArrows={false}>
 				<div>
 					<img src="https://cf.shopee.co.id/file/c05cf88e7b4167813b894867a4d5a610" style={{ "height": carouselHeight }} />
 				</div>
@@ -33,11 +31,8 @@ export default function Home(props) {
 				</div>
 			</Carousel>
 			{/* <HeroCarousel heroCarousel={heroCarousel} /> */}
-			{/*Categories*/}
-			{/* <div className="product-categories-container container mx-auto my-32 px-4 xl:px-0">
-				<h2 className="main-title text-xl mb-5 uppercase"><span className="main-title-inner">Categories</span></h2>
-				<ParentCategoriesBlock productCategories={productCategories} />
-			</div> */}
+			{/* Categories */}
+			<ParentCategoriesBlock productCategories={productCategories} />
 			{/*Products*/}
 			{/* <div className="products container mx-auto my-32 px-4 xl:px-0">
 				<h2 className="products-main-title main-title mb-5 text-xl uppercase"><span className="main-title-inner">Products</span></h2>
