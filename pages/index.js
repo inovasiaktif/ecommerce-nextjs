@@ -5,7 +5,8 @@ import ParentCategoriesBlock from "../src/components/category/category-block/Par
 import PRODUCTS_AND_CATEGORIES_QUERY from "../src/queries/product-and-categories";
 import HeroCarousel from "../src/components/home/hero-carousel";
 import { Carousel } from 'react-responsive-carousel';
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useState } from 'react';
+import useLayoutEffect from '../src/components/UseIsomorphicLayoutEffect'
 
 export default function Home(props) {
 	const { products, productCategories, heroCarousel } = props || {};
@@ -47,16 +48,14 @@ export default function Home(props) {
 
 function useWindowSize() {
 	const [size, setSize] = useState([0]);
-	if (typeof document === 'undefined') {
-		useLayoutEffect(() => {
-			function updateSize() {
-				setSize([window.innerWidth]);
-			}
-			window.addEventListener('resize', updateSize);
-			updateSize();
-			return () => window.removeEventListener('resize', updateSize);
-		}, []);
-	}
+	useLayoutEffect(() => {
+		function updateSize() {
+			setSize([window.innerWidth]);
+		}
+		window.addEventListener('resize', updateSize);
+		updateSize();
+		return () => window.removeEventListener('resize', updateSize);
+	}, [setSize]);
 
 	return size;
 }

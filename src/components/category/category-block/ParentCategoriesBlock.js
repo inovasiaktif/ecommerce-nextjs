@@ -18,6 +18,8 @@ const ParentCategoriesBlock = (props) => {
 
 	const { productCategories } = props || {};
 
+	// console.log(productCategories)
+
 	// const productCategories = [
 	// 	{
 	// 		"id": "1",
@@ -80,6 +82,7 @@ const ParentCategoriesBlock = (props) => {
 							<Card
 								itemId={productCategory.id} // NOTE: itemId is required for track items
 								title={productCategory.name}
+								image={productCategory.image}
 								key={index}
 							/>
 						))}
@@ -91,12 +94,12 @@ const ParentCategoriesBlock = (props) => {
 
 };
 
-function Card({ onClick, selected, title, itemId }) {
+function Card({ onClick, selected, title, itemId, image }) {
 	const visibility = React.useContext(VisibilityContext);
 
 	return (
 		<>
-			<img width="invalid-value" height="invalid-value" alt="Gratis Ongkir dan Voucher" className="aVI9cK s1KOz9" style={{ "objectFit": "contain" }} src="https://cf.shopee.co.id/file/4497ac7ff3ee9711a8d512d0f8297b49_xxhdpi" />
+			<img width="invalid-value" height="invalid-value" alt="Gratis Ongkir dan Voucher" className="aVI9cK s1KOz9" style={{ "objectFit": "contain" }} src={image ? image.sourceUrl : "https://cms.inovasiaktif.com/wp-content/uploads/2022/10/5bc9fd14235a391a392f353e436cf6a2_tn.png"} />
 			<div className="category-name">{title}</div>
 		</>
 	);

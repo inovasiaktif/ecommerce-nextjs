@@ -23,7 +23,7 @@
     }
 
     .react-horizontal-scrolling-menu--scroll-container {
-        height: 195px;
+        height: 350px;
         padding-top: 15px;
         flex-wrap: wrap;
         flex-direction: column;
@@ -37,8 +37,8 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         max-height: 2.625rem;
-        font-size: .625rem;
-        line-height: .875rem;
+        font-size: 14px;
+        line-height: 1.2rem;
         color: rgba(0, 0, 0, .87);
         word-wrap: break-word;
         overflow: hidden;
@@ -46,7 +46,7 @@
     }
 
     .react-horizontal-scrolling-menu--item {
-        height: 5.5rem;
+        height: 10rem;
         min-width: 22.22222%;
         text-align: center;
     }
@@ -55,8 +55,8 @@
         object-fit: contain;
         vertical-align: bottom;
         display: inline-block;
-        width: 2.625rem;
-        height: 2.625rem;
+        height: auto;
+        width: 100px;
         margin-bottom: 0.25rem;
         opacity: 1;
         transition: opacity .2s ease;
