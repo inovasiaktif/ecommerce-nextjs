@@ -18,7 +18,6 @@ const CartIcon = () => {
 				{/*{ totalPrice ? <span>{ totalPrice }</span> : '' }*/}
 			</a>
 		</Link>
-
 	)
 };
 
