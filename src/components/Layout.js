@@ -21,6 +21,7 @@ const Layout = (props) => {
         <div>
           <Head>
             <title>IA Digital Printing - Percetakan Online Terbaik di Indonesia</title>
+            <link rel="shortcut icon" href="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-ia-digital-printing-2-32x32.png" />
           </Head>
           {/* <Header /> */}
           <Menu />

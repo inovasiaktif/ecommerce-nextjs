@@ -2,18 +2,6 @@ import ProductCategoryBlock from "./ParentCategoryBlock";
 import React from "react";
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 
-function getItems() {
-	// Array(20)
-	// 	.fill(0)
-	// 	.map((_, ind) => ({ id: `element-${ind}` }));
-	return [
-		{
-			"id": 'elemt-0',
-			"name": ""
-		}
-	]
-}
-
 const ParentCategoriesBlock = (props) => {
 
 	const { productCategories } = props || {};
@@ -99,7 +87,7 @@ function Card({ onClick, selected, title, itemId, image }) {
 
 	return (
 		<>
-			<img width="invalid-value" height="invalid-value" alt="Gratis Ongkir dan Voucher" className="aVI9cK s1KOz9" style={{ "objectFit": "contain" }} src={image ? image.sourceUrl : "https://cms.inovasiaktif.com/wp-content/uploads/2022/10/5bc9fd14235a391a392f353e436cf6a2_tn.png"} />
+			<img alt="Gratis Ongkir dan Voucher" className="aVI9cK s1KOz9" style={{ "objectFit": "contain" }} src={image ? image.sourceUrl : "https://cms.inovasiaktif.com/wp-content/uploads/2022/10/5bc9fd14235a391a392f353e436cf6a2_tn.png"} />
 			<div className="category-name">{title}</div>
 		</>
 	);
