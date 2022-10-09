@@ -35,7 +35,7 @@ export default function Home(props) {
 			{/* Categories */}
 			<ParentCategoriesBlock productCategories={productCategories} />
 			{/*Products*/}
-			<div className="products container mx-auto my-4 px-4 xl:px-0">
+			<div className="content products container mx-auto my-2 px-4 xl:px-0 pt-4">
 				<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
 					{products.length ? (
 						products.map(product => <Product key={product.id} product={product} />)
