@@ -18,16 +18,14 @@ const Layout = (props) => {
   return (
     <AppProvider>
       <ApolloProvider client={client}>
-        <div>
-          <Head>
-            <title>IA Digital Printing - Percetakan Online Terbaik di Indonesia</title>
-            <link rel="shortcut icon" href="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-ia-digital-printing-2-32x32.png" />
-          </Head>
-          {/* <Header /> */}
-          <Menu />
-          {props.children}
-          <Footer />
-        </div>
+        <Head>
+          <title>IA Digital Printing - Percetakan Online Terbaik di Indonesia</title>
+          <link rel="shortcut icon" href="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-ia-digital-printing-2-32x32.png" />
+        </Head>
+        {/* <Header /> */}
+        {props && props.homepage && <Menu />}
+        {props.children}
+        <Footer />
       </ApolloProvider>
     </AppProvider>
   );
