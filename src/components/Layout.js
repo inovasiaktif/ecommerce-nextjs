@@ -10,6 +10,7 @@ import TopHeader from "./TopHeader";
 import Menu from "./Menu";
 import React from "react";
 import BottomMenu from "./BottomMenu";
+import SubMenu from "./SubMenu";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -20,11 +21,11 @@ const Layout = (props) => {
     <AppProvider>
       <ApolloProvider client={client}>
         <Head>
-          <title>IA Digital Printing - Percetakan Online Terbaik di Indonesia</title>
+          <title>{props && props.title ? props.title : "IA Digital Printing - Percetakan Online Terbaik di Indonesia"}</title>
           <link rel="shortcut icon" href="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-ia-digital-printing-2-32x32.png" />
         </Head>
         {/* <Header /> */}
-        {props && props.homepage && <Menu />}
+        {props && props.homepage ? <Menu /> : <SubMenu />}
         <BottomMenu />
         {props.children}
         <Footer />
