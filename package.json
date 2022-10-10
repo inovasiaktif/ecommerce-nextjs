@@ -36,6 +36,7 @@
     "react-dom": "^18.2.0",
     "react-horizontal-scrolling-menu": "^3.2.0",
     "react-ionicons": "^4.2.0",
+    "react-loading": "^2.0.3",
     "react-responsive-carousel": "^3.2.23",
     "sass": "^1.29.0",
     "stripe": "^8.148.0",
