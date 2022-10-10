@@ -9,6 +9,7 @@
     /* fallback for old browsers */
     height: 5px;
     width: 100%;
+    display: none;
 }
 
 #nprogress .peg {
@@ -113,12 +114,24 @@
 }
 
 .bar-container {
-    // display: none;
-    background: #d7dadf;
-    height: 5px;
-    width: 100%;
     position: fixed;
-    z-index: 1031;
-    top: 0;
-    left: 0;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('//upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Phi_fenomeni.gif/50px-Phi_fenomeni.gif') 50% 50% no-repeat rgb(249, 249, 249);
+    // display: none;
+    // background: #d7dadf;
+    // height: 5px;
+    // width: 100%;
+    // position: fixed;
+    // z-index: 1031;
+    // top: 0;
+    // left: 0;
+
+    // img {
+    //     margin: 0 auto;
+    //     width: 60px;
+    // }
 }
