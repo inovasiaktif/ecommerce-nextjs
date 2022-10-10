@@ -21,7 +21,7 @@ const Layout = (props) => {
     <AppProvider>
       <ApolloProvider client={client}>
         <Head>
-          <title>{props && props.title ? props.title : "IA Digital Printing - Percetakan Online Terbaik di Indonesia"}</title>
+          <title>{props && props.title ? props.title : "IA Digital Printing | Percetakan Online Terbaik di Indonesia"}</title>
           <link rel="shortcut icon" href="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-ia-digital-printing-2-32x32.png" />
         </Head>
         {/* <Header /> */}

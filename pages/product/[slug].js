@@ -19,7 +19,7 @@ export default function Product(props) {
     }
 
     return (
-        <Layout>
+        <Layout title={"Jual " + product && product.name + " | IA Digital Printing"}>
             {product ? (
                 <div className="single-product container mx-auto mb-32 xl:px-0">
                     <div className="grid md:grid-cols-2 gap-4">

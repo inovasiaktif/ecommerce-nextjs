@@ -1,11 +1,16 @@
 import Layout from "../../src/components/Layout";
 import client from "../../src/components/ApolloClient";
 import Product from "../../src/components/Product";
-import {PRODUCT_BY_CATEGORY_SLUG, PRODUCT_CATEGORIES_SLUGS} from "../../src/queries/product-by-category";
-import {isEmpty} from "lodash";
-import {useRouter} from "next/router";
+import { PRODUCT_BY_CATEGORY_SLUG, PRODUCT_CATEGORIES_SLUGS } from "../../src/queries/product-by-category";
+import { isEmpty } from "lodash";
+import { useRouter } from "next/router";
+import { getCurrentMonthName, getCurrentYear } from "../../src/functions";
 
-export default function CategorySingle( props ) {
+function categoryTitle(name) {
+    return name + " Harga Termurah | Model Terbaru " + getCurrentMonthName() + " " + getCurrentYear();
+}
+
+export default function CategorySingle(props) {
 
     const router = useRouter()
 
@@ -18,12 +23,12 @@ export default function CategorySingle( props ) {
     const { categoryName, products } = props;
 
     return (
-        <Layout>
+        <Layout title={categoryTitle(categoryName)}>
             <div className="product-categories-container container mx-auto my-32 px-4 xl:px-0">
-                { categoryName ? <h3 className="text-2xl mb-5 uppercase">{ categoryName }</h3> : '' }
+                {categoryName ? <h3 className="text-2xl mb-5 uppercase">{categoryName}</h3> : ''}
                 <div className="product-categories grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-                    { undefined !== products && products?.length ? (
-                        products.map( product => <Product key={ product?.id } product={ product } /> )
+                    {undefined !== products && products?.length ? (
+                        products.map(product => <Product key={product?.id} product={product} />)
                     ) : ''}
                 </div>
             </div>
@@ -33,9 +38,9 @@ export default function CategorySingle( props ) {
 
 export async function getStaticProps(context) {
 
-    const {params: { slug }} = context
+    const { params: { slug } } = context
 
-    const {data} = await client.query(({
+    const { data } = await client.query(({
         query: PRODUCT_BY_CATEGORY_SLUG,
         variables: { slug }
     }));
@@ -50,7 +55,7 @@ export async function getStaticProps(context) {
 
 }
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
     const { data } = await client.query({
         query: PRODUCT_CATEGORIES_SLUGS
     })
