@@ -4,7 +4,6 @@ import "../src/styles/main.scss";
 import Router, { useRouter } from 'next/router';
 import NProgress from '../src/components/NProgress'
 import React, { useState, useEffect } from "react";
-// import ReactLoading from 'react-loading';
 
 NProgress.configure({ showSpinner: false });
 
