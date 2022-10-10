@@ -9,6 +9,7 @@ import { ApolloProvider } from "@apollo/client";
 import TopHeader from "./TopHeader";
 import Menu from "./Menu";
 import React from "react";
+import BottomMenu from "./BottomMenu";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -24,6 +25,7 @@ const Layout = (props) => {
         </Head>
         {/* <Header /> */}
         {props && props.homepage && <Menu />}
+        <BottomMenu />
         {props.children}
         <Footer />
       </ApolloProvider>
