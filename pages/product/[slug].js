@@ -19,12 +19,11 @@ export default function Product(props) {
     }
 
     return (
-        <Layout title={"Jual " + product && product.name + " | IA Digital Printing"}>
+        <Layout title={"Jual " + product && product.name + " | IA Digital Printing"} menuType="product">
             {product ? (
                 <div className="single-product container mx-auto mb-32 xl:px-0">
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="product-images">
-
                             {!isEmpty(product?.galleryImages?.nodes) ? (
                                 <GalleryCarousel gallery={product?.galleryImages?.nodes} />
                             ) : !isEmpty(product.image) ? (
@@ -61,7 +60,6 @@ export default function Product(props) {
 
 
 export async function getStaticProps(context) {
-
     const { params: { slug } } = context
 
     const { data } = await client.query({
