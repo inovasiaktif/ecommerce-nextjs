@@ -11,7 +11,7 @@ const Product = (props) => {
 	return (
 		// @TODO Need to handle Group products differently.
 		undefined !== product && 'GroupProduct' !== product.__typename ? (
-			<div className="product mb-5">
+			<div className="product">
 
 
 				<Link href={`/product/${product?.slug}`} >
@@ -32,7 +32,6 @@ const Product = (props) => {
 						{product.name ? product.name : ''}
 					</h3>
 					<Price salesPrice={product?.price} regularPrice={product?.regularPrice} />
-					<AddToCartButton product={product} />
 				</div>
 
 			</div>
