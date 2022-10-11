@@ -47,7 +47,13 @@
 }
 
 .products {
-    background: linear-gradient(180deg, #fff 0, #efefef 2.5rem);
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
+    background: linear-gradient(180deg, #fff 0, #efefef 26.5rem);
+    padding: 0.4rem;
+
+    .section-grid {
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        padding-right: 6px;
+    }
 }

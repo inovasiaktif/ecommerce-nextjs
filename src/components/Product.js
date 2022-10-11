@@ -28,7 +28,7 @@ const Product = (props) => {
 					</a>
 				</Link>
 				<div className="product-info">
-					<h3 className="product-title mt-3 font-medium text-gray-800">
+					<h3 className="product-title mb-2 font-medium text-gray-800">
 						{product.name ? product.name : ''}
 					</h3>
 					<Price salesPrice={product?.price} regularPrice={product?.regularPrice} />

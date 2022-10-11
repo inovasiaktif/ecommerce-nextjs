@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const SubMenu = () => {
+const SubMenu = ({ menuTitle }) => {
     return (
         <>
             <div className="sub-menu">
@@ -16,7 +16,7 @@ const SubMenu = () => {
                     </a>
                 </Link>
                 <div className="title-container">
-                    <div className="title">Kategori</div>
+                    <div className="title">{menuTitle ? menuTitle : ''}</div>
                 </div>
                 <div className="item-container"></div>
             </div>

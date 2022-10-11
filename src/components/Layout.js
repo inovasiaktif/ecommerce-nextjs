@@ -20,7 +20,7 @@ const Layout = (props) => {
           <link rel="shortcut icon" href="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-ia-digital-printing-2-32x32.png" />
         </Head>
         {/* <Header /> */}
-        {props && props.homepage ? <Menu /> : <SubMenu />}
+        {props && props.homepage ? <Menu /> : <SubMenu menuTitle={props.menuTitle} />}
         <BottomMenu />
         {props.children}
         <Footer />

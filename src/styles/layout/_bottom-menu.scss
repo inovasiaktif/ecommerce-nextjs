@@ -5,6 +5,10 @@
     z-index: 10;
     bottom: 0;
 
+    .active-menu {
+        color: #00a4f7 !important;
+    }
+
     svg {
         display: inline-block;
     }

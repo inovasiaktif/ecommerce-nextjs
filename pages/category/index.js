@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 export default function CategoryList(props) {
     const { productCategories } = props || {};
     return (
-        <Layout title="Semua Kategori">
+        <Layout title="Semua Kategori" menuTitle="Kategori">
             <ParentCategoriesBlock productCategories={productCategories} />
         </Layout>
     )
