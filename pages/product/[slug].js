@@ -19,9 +19,9 @@ export default function Product(props) {
     }
 
     return (
-        <Layout title={"Jual " + product && product.name + " | IA Digital Printing"} menuType="product">
+        <Layout title={"Jual " + product && product.name + " | IA Digital Printing"} pageType="product" product={product}>
             {product ? (
-                <div className="single-product container mx-auto mb-32 xl:px-0">
+                <div className="content single-product container mx-auto mb-32 xl:px-0 pb-3">
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="product-images">
                             {!isEmpty(product?.galleryImages?.nodes) ? (
@@ -46,7 +46,6 @@ export default function Product(props) {
                                 className="product-description mb-5"
                             /> */}
                             <Price salesPrice={product?.price} regularPrice={product?.regularPrice} />
-                            <AddToCartButton product={product} />
                         </div>
                     </div>
 

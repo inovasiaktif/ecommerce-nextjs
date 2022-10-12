@@ -22,7 +22,7 @@ export default function Home(props) {
 	const carouselHeight = ((carouselHeightPercent / 100 * 320) - 40) + 'px';
 
 	return (
-		<Layout homepage={true}>
+		<Layout isHomepage={true}>
 			{/*Hero Carousel*/}
 			<Carousel infiniteLoop={true} interval={5000} autoPlay={true} showStatus={false} showThumbs={false} showArrows={false}>
 				<div>

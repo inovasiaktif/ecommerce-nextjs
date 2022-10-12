@@ -9,6 +9,22 @@
     margin: 2.75rem auto 0;
     max-width: 37.5rem;
     margin-top: 0;
+
+    .cart-badges {
+        position: absolute;
+        height: 18px;
+        min-width: 19px;
+        left: 235px;
+        top: 8px;
+        background: rgb(0, 164, 247);
+        color: #fff;
+        font-size: 10px;
+        line-height: 12px;
+        padding: 2px;
+        border-radius: 9px;
+        border: 1px solid #fff;
+        text-align: center;
+    }
 }
 
 .menu-item {

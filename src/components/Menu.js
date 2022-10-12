@@ -1,7 +1,26 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
+import ProductMenu from './ProductMenu';
+import SubMenu from './SubMenu';
+import { AppContext } from './context/AppContext';
 
-const Menu = () => {
+const Menu = ({ isHomepage, menuTitle, pageType }) => {
+    return (
+        <>
+            {
+                isHomepage ? <HomepageMenu /> :
+                    pageType && pageType == "product" ? <ProductMenu /> :
+                        <SubMenu menuTitle={menuTitle} />
+            }
+        </>
+    )
+
+};
+
+const HomepageMenu = () => {
+    const [cart] = useContext(AppContext);
+    const productsCount = (null !== cart && Object.keys(cart).length) ? cart.totalProductsCount : '';
+
     return (
         <>
             <div className="menu flex">
@@ -11,6 +30,7 @@ const Menu = () => {
                 <div className="menu-item cart-icon-container">
                     <Link href="/cart">
                         <a className="account">
+                            {productsCount ? <span className="cart-badges">{productsCount}</span> : ''}
                             <svg style={{ "color": "white" }} viewBox="0 0 24 24" fill="none" width="24" height="24" color="currentColor"><path fillRule="evenodd" clipRule="evenodd" d="M0 2.75h3.713l4.065 14.453a.75.75 0 00.722.547H20a.75.75 0 00.721-.544l3-10.5A.75.75 0 0023 5.75H6.115L5.003 1.797 4.85 1.25H0v1.5zm9.068 13.5l-2.531-9h15.469l-2.572 9H9.068zM9.75 22a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zm9 0a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" fill="currentColor"></path></svg>
                         </a>
                     </Link>
@@ -25,6 +45,6 @@ const Menu = () => {
             </div>
         </>
     )
-};
+}
 
 export default Menu;
