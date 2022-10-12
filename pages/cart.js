@@ -4,8 +4,10 @@ import CartItemsContainer from "../src/components/cart/cart-page/CartItemsContai
 
 const Cart = () => {
 	return (
-		<Layout>
-			<CartItemsContainer/>
+		<Layout title="Keranjang Saya" menuTitle="Keranjang Saya" pageType="cart">
+			<div className="sub-page">
+				<CartItemsContainer />
+			</div>
 		</Layout>
 	)
 };

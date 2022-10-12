@@ -3,12 +3,21 @@ import { ArrowBackOutline, CartOutline, PersonOutline } from 'react-ionicons';
 import { useRouter } from 'next/router'
 import React, { useContext } from 'react';
 import { AppContext } from './context/AppContext';
+import { getWindowSize } from '../functions';
 
 const ProductMenu = () => {
     const router = useRouter()
 
     const [cart] = useContext(AppContext);
     const productsCount = (null !== cart && Object.keys(cart).length) ? cart.totalProductsCount : '';
+
+    const [width] = getWindowSize();
+    const maxWidth = 600;
+
+    let badgesLeft = 512;
+    if (width < maxWidth) {
+        badgesLeft = (width - 88);
+    }
 
     return (
         <>
@@ -21,7 +30,7 @@ const ProductMenu = () => {
                 <div className="menu-item cart-icon-container">
                     <Link href="/cart">
                         <a className="bg-icon icon">
-                            {productsCount ? <span className="cart-badges">{productsCount}</span> : ''}
+                            {productsCount ? <span style={{ "left": badgesLeft }} className="cart-badges">{productsCount}</span> : ''}
                             <CartOutline color={'white'} height="22px" width="22px" />
                         </a>
                     </Link>

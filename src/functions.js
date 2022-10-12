@@ -1,5 +1,21 @@
 import { v4 } from 'uuid';
 import { isEmpty, isArray } from 'lodash'
+import UseIsomorphicLayoutEffect from './components/UseIsomorphicLayoutEffect';
+import { useState } from 'react';
+
+export const getWindowSize = () => {
+	const [size, setSize] = useState([0]);
+	UseIsomorphicLayoutEffect(() => {
+		function updateSize() {
+			setSize([window.innerWidth]);
+		}
+		window.addEventListener('resize', updateSize);
+		updateSize();
+		return () => window.removeEventListener('resize', updateSize);
+	}, [setSize]);
+
+	return size;
+}
 
 export const getCurrentMonthName = () => {
 	const currentMonth = new Date().getMonth();

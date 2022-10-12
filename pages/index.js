@@ -8,10 +8,11 @@ import { Carousel } from 'react-responsive-carousel';
 import React, { useState } from 'react';
 import useLayoutEffect from '../src/components/UseIsomorphicLayoutEffect'
 import Link from "next/link";
+import { getWindowSize } from "../src/functions";
 
 export default function Home(props) {
 	const { products, productCategories, heroCarousel } = props || {};
-	const [width] = useWindowSize();
+	const [width] = getWindowSize();
 
 	const percentage = Math.floor((width / 600) * 100)
 	let carouselHeightPercent = 100;
@@ -52,20 +53,6 @@ export default function Home(props) {
 		</Layout>
 	)
 };
-
-function useWindowSize() {
-	const [size, setSize] = useState([0]);
-	useLayoutEffect(() => {
-		function updateSize() {
-			setSize([window.innerWidth]);
-		}
-		window.addEventListener('resize', updateSize);
-		updateSize();
-		return () => window.removeEventListener('resize', updateSize);
-	}, [setSize]);
-
-	return size;
-}
 
 export async function getStaticProps() {
 
