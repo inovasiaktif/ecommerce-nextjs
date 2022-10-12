@@ -1,0 +1,35 @@
+.cart-bottom-menu {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    bottom: 0;
+
+    #tabs {
+        height: 50px;
+    }
+
+    .title {
+        font-size: 14px;
+    }
+
+    .active-menu {
+        color: #00a4f7 !important;
+    }
+
+    svg {
+        display: inline-block;
+    }
+
+    a {
+        text-align: center;
+        padding-top: 0.5rem;
+        padding-bottom: 0.25rem;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 0.55rem;
+        padding-top: 2px;
+    }
+}

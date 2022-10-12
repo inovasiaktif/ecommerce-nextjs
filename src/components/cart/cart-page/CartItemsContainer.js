@@ -9,11 +9,9 @@ import UPDATE_CART from "../../../mutations/update-cart";
 import GET_CART from "../../../queries/get-cart";
 import CLEAR_CART_MUTATION from "../../../mutations/clear-cart";
 import { isEmpty } from 'lodash'
-
+import CartBottomMenu from '../../CartBottomMenu';
 
 const CartItemsContainer = () => {
-
-
 	// @TODO wil use it in future variations of the project.
 	const [cart, setCart] = useContext(AppContext);
 	const [requestError, setRequestError] = useState(null);
@@ -111,42 +109,22 @@ const CartItemsContainer = () => {
 				<div className="woo-next-cart-wrapper container">
 					<div>
 						{cart.products.length && (
-							cart.products.map(item => (
-								<CartItem
-									key={item.productId}
-									item={item}
-									updateCartProcessing={updateCartProcessing}
-									products={cart.products}
-									handleRemoveProductClick={handleRemoveProductClick}
-									updateCart={updateCart}
-								/>
-							))
+							<>
+								{cart.products.map(item => (
+									<CartItem
+										key={item.productId}
+										item={item}
+										updateCartProcessing={updateCartProcessing}
+										products={cart.products}
+										handleRemoveProductClick={handleRemoveProductClick}
+										updateCart={updateCart}
+									/>
+								))}
+							</>
 						)}
 
 						{/*Cart Total*/}
-						<div className="row woo-next-cart-total-container border p-5 bg-gray-200">
-							<div className="">
-								{/* <h2 className="text-2xl">Cart Total</h2> */}
-								<table className="table table-hover mb-5">
-									<tbody>
-										<tr className="table-light flex flex-col">
-											<td className="woo-next-cart-element-total text-2xl font-normal">Subtotal</td>
-											<td className="woo-next-cart-element-amt text-2xl font-bold">{('string' !== typeof cart.totalProductsPrice) ? cart.totalProductsPrice.toFixed(2) : cart.totalProductsPrice}</td>
-										</tr>
-										{/* <tr className="table-light">
-										<td className="woo-next-cart-element-total">Total</td>
-										<td className="woo-next-cart-element-amt">{ ( 'string' !== typeof cart.totalProductsPrice ) ? cart.totalProductsPrice.toFixed(2) : cart.totalProductsPrice }</td>
-									</tr> */}
-									</tbody>
-								</table>
-								<Link href="/checkout">
-									<button className="bg-purple-600 text-white px-5 py-3 rounded-sm w-auto xl:w-full">
-										<span className="woo-next-cart-checkout-txt">Proceed to Checkout</span>
-										<i className="fas fa-long-arrow-alt-right" />
-									</button>
-								</Link>
-							</div>
-						</div>
+						<CartBottomMenu cart={cart} />
 					</div>
 
 					{/* Display Errors if any */}

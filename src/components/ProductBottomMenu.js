@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ChatbubblesOutline, CartOutline } from 'react-ionicons';
+import { ChatbubblesOutline, CartOutline, LogoWhatsapp } from 'react-ionicons';
 import { useState, useContext } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { v4 } from 'uuid';
@@ -68,19 +68,13 @@ const ProductBottomMenu = ({ product }) => {
             <div>
                 <section id="bottom-navigation" className="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow">
                     <div id="tabs" className="flex justify-between">
-                        <Link href="/">
-                            <a className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
-                                <ChatbubblesOutline color={'intherit'} height="25px" width="25px" />
-                                <span className="title tab tab-account block text-xs">Chat Sekarang</span>
-                            </a>
-                        </Link>
-                        <button onClick={handleAddToCartClick} className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1" style={{
-                            "backgroundColor": "#00a4f7",
+                        <a target="_blank" href={"https://wa.me/085878565493?text=Hai,%20Admin!%20Saya%20tertarik%20dengan%20produk%20" + (product ? product.name : '')} className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1" style={{
+                            "backgroundColor": "#00a884",
                             "color": "white"
                         }}>
-                            <CartOutline color={'intherit'} height="25px" width="25px" />
-                            <span className="title tab tab-account block text-xs">Masukkan Keranjang</span>
-                        </button>
+                            <LogoWhatsapp color={'white'} height="25px" width="25px" /><span style={{ "paddingLeft": "8px", "fontWeight": "bold" }}>Klik untuk Chat Admin</span>
+                            <span className="title tab tab-account block" style={{ "fontSize": "10px", "marginTop": "5px" }}>(Boleh Bertanya Dulu & Bisa Request Desain)</span>
+                        </a>
                     </div>
                 </section>
             </div>
