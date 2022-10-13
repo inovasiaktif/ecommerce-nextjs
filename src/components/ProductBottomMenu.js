@@ -73,7 +73,7 @@ const ProductBottomMenu = ({ product }) => {
                             "color": "white"
                         }}>
                             <LogoWhatsapp color={'white'} height="25px" width="25px" /><span style={{ "paddingLeft": "8px", "fontWeight": "bold" }}>Klik untuk Chat Admin</span>
-                            <span className="title tab tab-account block" style={{ "fontSize": "10px", "marginTop": "5px" }}>(Boleh Bertanya Dulu & Bisa Request Desain)</span>
+                            <span className="title tab tab-account block" style={{ "fontSize": "10px", "marginTop": "1px" }}>(Boleh Bertanya Dulu & Bisa Request Desain)</span>
                         </a>
                     </div>
                 </section>

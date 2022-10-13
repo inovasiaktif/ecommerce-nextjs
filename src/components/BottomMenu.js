@@ -23,9 +23,9 @@ const DefaultBottomMenu = () => {
                         "backgroundColor": "#00a884",
                         "color": "white"
                     }}>
-                        <span className="title tab tab-account block" style={{ "fontSize": "10px", "marginBottom": "5px" }}>Bingung/Produk yang kamu cari tidak ada? Tanya Admin saja yuk.</span>
+                        <span className="title tab tab-account block" style={{ "fontSize": "10px", "marginBottom": "1px" }}>Bingung/Produk yang kamu cari tidak ada? Tanya Admin saja yuk.</span>
                         <LogoWhatsapp color={'white'} height="25px" width="25px" /><span style={{ "paddingLeft": "8px", "fontWeight": "bold" }}>Klik untuk Chat Admin</span>
-                        <span className="title tab tab-account block" style={{ "fontSize": "10px", "marginTop": "5px" }}>(Konsultasi / Tanya-tanya GRATIS)</span>
+                        <span className="title tab tab-account block" style={{ "fontSize": "10px", "marginTop": "0px" }}>(Konsultasi / Tanya-tanya GRATIS)</span>
                     </a>
                 </div>
             </section>
