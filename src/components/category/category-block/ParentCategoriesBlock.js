@@ -7,61 +7,6 @@ const ParentCategoriesBlock = (props) => {
 
 	const { productCategories } = props || {};
 
-	// console.log(productCategories)
-
-	// const productCategories = [
-	// 	{
-	// 		"id": "1",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "2",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "3",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "4",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "5",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "6",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "7",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "8",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "9",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "10",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "11",
-	// 		"name": "Test"
-	// 	},
-	// 	{
-	// 		"id": "12",
-	// 		"name": "Test"
-	// 	}
-	// ];
-
-	// console.log(productCategories)
-
 	return (
 		<>
 			<div className="horizontal-categories">

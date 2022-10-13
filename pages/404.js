@@ -2,7 +2,7 @@ import Layout from "../src/components/Layout";
 
 export default function Custom404() {
     return (
-        <Layout>
+        <Layout noIndex={true}>
             <div style={{ "marginTop": "65px" }}>
                 <div className="error-content">
                     <img src="https://cms.inovasiaktif.com/wp-content/uploads/2022/10/tiny-people-examining-operating-system-error-warning-web-page-isolated-flat-illustration_74855-11104.jpg" />

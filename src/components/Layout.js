@@ -7,13 +7,14 @@ import Menu from "./Menu";
 import React from "react";
 import BottomMenu from "./BottomMenu";
 
-const Layout = ({ pageType, title, isHomepage, menuTitle, children, product }) => {
+const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noIndex }) => {
   return (
     <AppProvider>
       <ApolloProvider client={client}>
         <Head>
           <title>{title ? title : "IA Digital Printing | Percetakan Online Terbaik di Indonesia"}</title>
           <link rel="shortcut icon" href="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-ia-digital-printing-2-32x32.png" />
+          {noIndex && <meta name="robots" content="noindex" />}
         </Head>
         <Menu isHomepage={isHomepage} menuTitle={menuTitle} pageType={pageType} />
         <BottomMenu pageType={pageType} product={product} />
