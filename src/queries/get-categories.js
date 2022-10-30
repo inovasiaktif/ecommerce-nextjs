@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 
 /**
- * GraphQL categories query.
+ * GraphQL parent categories query.
  */
-const GET_CATEGORIES_QUERY = gql`query {
+const GET_PARENT_CATEGORIES_QUERY = gql`query {
 
-	productCategories(first: 3) {
+	productCategories(where: {parent:0}) {
 		nodes {
 			id
 			name
@@ -19,4 +19,4 @@ const GET_CATEGORIES_QUERY = gql`query {
 	
 }`;
 
-export default GET_CATEGORIES_QUERY;
+export default GET_PARENT_CATEGORIES_QUERY;

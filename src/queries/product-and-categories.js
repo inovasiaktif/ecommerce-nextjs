@@ -23,7 +23,7 @@ const PRODUCTS_AND_CATEGORIES_QUERY = gql`query {
       }
     }
   }
-  productCategories(first: 100) {
+  productCategories(where:{parent:0}) {
     nodes {
       id
       name
