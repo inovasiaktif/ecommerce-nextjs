@@ -13,9 +13,7 @@ const Nav = () => {
 
 				<div className="flex items-center flex-shrink-0 text-black mr-20">
 					<Link href="/">
-						<a>
-							<img src="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-logo-header.png" width={180} />
-						</a>
+						{/* <img src="https://cms.inovasiaktif.com/wp-content/uploads/2022/09/cropped-logo-header.png" width={180} /> */}
 					</Link>
 				</div>
 

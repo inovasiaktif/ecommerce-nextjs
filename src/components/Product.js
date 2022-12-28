@@ -15,17 +15,15 @@ const Product = (props) => {
 
 
 				<Link href={`/product/${product?.slug}`} >
-					<a>
-						<Image
-							className="object-cover bg-gray-100"
-							width="308"
-							height="308"
-							loading="lazy"
-							sourceUrl={product?.image?.sourceUrl ?? ''}
-							defaultImgUrl={DEFAULT_PRODUCT_HOME_IMG_URL}
-							altText={product?.image?.altText ?? product?.slug}
-						/>
-					</a>
+					<Image
+						className="object-cover bg-gray-100"
+						width="308"
+						height="308"
+						loading="lazy"
+						sourceUrl={product?.image?.sourceUrl ?? ''}
+						defaultImgUrl={DEFAULT_PRODUCT_HOME_IMG_URL}
+						altText={product?.image?.altText ?? product?.slug}
+					/>
 				</Link>
 				<div className="product-info">
 					<h3 className="product-title mb-2 font-medium text-gray-800">

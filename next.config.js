@@ -1,7 +1,13 @@
 const path = require("path");
 const allowedImageWordPressDomain = new URL(process.env.NEXT_PUBLIC_WORDPRESS_URL).hostname
 
+/** @type {import('next').NextConfig} */
+const { i18n } = require("./next-i18next.config");
+
 module.exports = {
+    // reactStrictMode: true,
+    // swcMinify: true,
+    i18n,
     trailingSlash: true,
     webpackDevMiddleware: (config) => {
         config.watchOptions = {
@@ -20,6 +26,6 @@ module.exports = {
      * @see https://nextjs.org/docs/basic-features/image-optimization#domains
      */
     images: {
-        domains: [ allowedImageWordPressDomain, 'via.placeholder.com' ],
+        domains: [allowedImageWordPressDomain, 'via.placeholder.com'],
     },
 };

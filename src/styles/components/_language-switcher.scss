@@ -1,0 +1,16 @@
+.language-switcher {
+    .active {
+        background-color: #a0c8dc !important;
+    }
+
+    .item {
+        padding: 10px;
+        background-color: #e0e0e0;
+
+        svg {
+            width: 25px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+}
