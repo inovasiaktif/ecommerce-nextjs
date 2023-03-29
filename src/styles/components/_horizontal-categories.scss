@@ -24,8 +24,8 @@
     }
 
     .react-horizontal-scrolling-menu--scroll-container {
-        height: 330px;
-        padding-top: 5px;
+        height: 225px;
+        padding-top: 10px;
         flex-wrap: wrap;
         flex-direction: column;
     }
@@ -47,7 +47,7 @@
     }
 
     .react-horizontal-scrolling-menu--item {
-        height: 10rem;
+        height: 100px;
         min-width: 22.22222%;
         text-align: center;
     }

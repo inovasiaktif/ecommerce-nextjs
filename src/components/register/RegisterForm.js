@@ -36,9 +36,9 @@ const RegisterForm = () => {
             variables: {
                 input: {
                     clientMutationId: v4(),
-                    username: "your_username",
-                    password: "your_password",
-                    email: "your_email"
+                    username: event.target.username.value,
+                    password: event.target.password.value,
+                    email: event.target.email.value
                 }
             },
         });

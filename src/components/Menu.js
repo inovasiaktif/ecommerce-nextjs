@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import ProductMenu from './ProductMenu';
 import SubMenu from './SubMenu';
@@ -12,7 +12,7 @@ const Menu = ({ isHomepage, menuTitle, pageType, t }) => {
     return (
         <>
             {
-                isHomepage ? <HomepageMenu t={t} /> :
+                isHomepage ? <HomepageMenu t={t} isHomepage={isHomepage} /> :
                     pageType && pageType == "product" ? <ProductMenu /> :
                         <SubMenu menuTitle={menuTitle} />
             }
@@ -20,7 +20,7 @@ const Menu = ({ isHomepage, menuTitle, pageType, t }) => {
     )
 };
 
-const HomepageMenu = ({ t }) => {
+const HomepageMenu = ({ t, isHomepage }) => {
     const [cart] = useContext(AppContext);
     const productsCount = (null !== cart && Object.keys(cart).length) ? cart.totalProductsCount : '';
 
@@ -61,38 +61,36 @@ const HomepageMenu = ({ t }) => {
 
     const { locales, locale: activeLocale } = router;
 
+    const [opacity, setOpacity] = useState(0);
+
+    useEffect(()=>{
+        const scroll = (event) => {
+        const rawOpacity = Math.round(window.scrollY);
+
+        if (rawOpacity <= 0) {
+            setOpacity(0);
+        } else if (rawOpacity >= 100) {
+            setOpacity(100);
+        } else {
+            setOpacity(rawOpacity);
+        }
+        }
+        window.addEventListener("scroll", scroll, false);
+
+        return () => window.removeEventListener("scroll", scroll, false);
+    },[]);
+
     return (
         <>
-            <div className="menu flex">
-                <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                >
-                    <div className="text-muted cursor-pointer language-switcher">
-                        <h3><b>{t("main.Select language")}:</b></h3>
-                        <br />
-                        {locales?.map((locale, index) => {
-                            const { pathname, query, asPath } = router;
-                            return (
-                                <div key={index}>
-                                    <hr />
-                                    <Link href={{ pathname, query }} as={asPath} locale={locale} onClick={closeModal}>
-                                        <div className={locale == activeLocale ? "item active" : "item"}>
-                                            {locale === "en" ? <>
-                                                <US title="United States" /> English
-                                            </> : locale === "id" ? <><ID title="United States" style={{ "width": "25px", "display": "inline-block" }} /> Indonesia</> : null}
-                                        </div>
-                                    </Link>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </Modal>
-                <div className="menu-item" onClick={openModal} style={{ "paddingLeft": "0px", "paddingRight": "20px" }}>
+            <div className="menu flex" style={{
+                "backgroundColor": "rgb(56 145 255 / " + (!isHomepage ? 100 : opacity) + "%)"
+            }}>
+                <Link className="menu-item" href="/" style={{ "paddingLeft": "0px", "paddingRight": "10px" }}>
                     {productsCount ? <span style={{ "left": badgesLeft }} className="cart-badges">{productsCount}</span> : ''}
-                    {activeLocale == "en" ? <US title="United States" style={{ "width": "25px" }} /> : <ID title="United States" style={{ "width": "25px" }} />}
-                </div>
+                    <img src="/inovasiaktif_logo_white_transparent.png" style={{
+                        "width":"58px"
+                    }}/>
+                </Link>
                 <div className="menu-item w-full">
                     <input name="q" placeholder={t("main.Search Product or Services") + "..."} className="search-input" type="text" autoComplete="off" />
                 </div>
