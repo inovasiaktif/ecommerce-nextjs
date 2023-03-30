@@ -6,9 +6,12 @@ import { PRODUCT_BY_SLUG_QUERY, PRODUCT_SLUGS } from '../../src/queries/product-
 import { isEmpty } from 'lodash';
 import GalleryCarousel from "../../src/components/single-product/gallery-carousel";
 import Price from "../../src/components/single-product/price";
+import Link from 'next/link';
 
 export default function Product(props) {
     const { product } = props;
+
+    // console.log(product)
 
     const router = useRouter()
 
@@ -46,6 +49,11 @@ export default function Product(props) {
                                 className="product-description mb-5"
                             /> */}
                             <Price salesPrice={product?.price} regularPrice={product?.regularPrice} />
+                        </div>
+                        <div className="product-info px-4">
+                            {product.brands.nodes.length ? product.brands.nodes.map((brand, index) => (
+                                <Link href={"/seller/"+brand.slug} className="brand-name color-primary">{brand.name}</Link>
+                            )) : ''}
                         </div>
                     </div>
 
