@@ -32,10 +32,10 @@ export default function Home(props) {
 			{/*Hero Carousel*/}
 			<Carousel infiniteLoop={true} interval={5000} autoPlay={true} showStatus={false} showThumbs={false} showArrows={false}>
 				<div>
-					<img src="https://cf.shopee.co.id/file/c05cf88e7b4167813b894867a4d5a610" style={{ "height": carouselHeight }} />
+					<img src="/images/banner1.png" style={{ "height": carouselHeight }} />
 				</div>
 				<div>
-					<img src="https://cf.shopee.co.id/file/6cd2599e1baef75ade47ade0eb47c9db" style={{ "height": carouselHeight }} />
+					<img src="/images/banner2.png" style={{ "height": carouselHeight }} />
 				</div>
 			</Carousel>
 			{/* <HeroCarousel heroCarousel={heroCarousel} /> */}

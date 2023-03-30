@@ -69,8 +69,8 @@ const HomepageMenu = ({ t, isHomepage }) => {
 
         if (rawOpacity <= 0) {
             setOpacity(0);
-        } else if (rawOpacity >= 100) {
-            setOpacity(100);
+        } else if (rawOpacity >= 90) {
+            setOpacity(90);
         } else {
             setOpacity(rawOpacity);
         }
@@ -83,7 +83,7 @@ const HomepageMenu = ({ t, isHomepage }) => {
     return (
         <>
             <div className="menu flex" style={{
-                "backgroundColor": "rgb(56 145 255 / " + (!isHomepage ? 100 : opacity) + "%)"
+                "backgroundColor": "rgb(17 76 183 / " + (!isHomepage ? 90 : opacity) + "%)"
             }}>
                 <Link className="menu-item" href="/" style={{ "paddingLeft": "0px", "paddingRight": "10px" }}>
                     {productsCount ? <span style={{ "left": badgesLeft }} className="cart-badges">{productsCount}</span> : ''}
