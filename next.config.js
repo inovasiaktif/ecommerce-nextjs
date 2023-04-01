@@ -2,7 +2,6 @@ const path = require("path");
 const allowedImageWordPressDomain = new URL(process.env.NEXT_PUBLIC_WORDPRESS_URL).hostname
 
 /** @type {import('next').NextConfig} */
-const { i18n } = require("./next-i18next.config");
 
 module.exports = {
     // reactStrictMode: true,
