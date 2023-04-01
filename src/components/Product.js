@@ -27,9 +27,9 @@ const Product = (props) => {
 					/>
 				</Link>
 				<div className="product-info">
-					{product.allPaSeller.nodes.length ? product.allPaSeller.nodes.map((seller, index) => (
+					{product?.allPaSeller?.nodes && product?.allPaSeller?.nodes.map((seller, index) => (
 						<Link key={index} href={"/seller/"+seller.slug} className="brand-name color-primary">{seller.name}</Link>
-					)) : ''}
+					))}
 					<h3 className="product-title mb-2 font-medium text-gray-800">
 						{product.name ? product.name : ''}
 					</h3>

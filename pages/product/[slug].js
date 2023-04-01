@@ -40,9 +40,9 @@ export default function Product(props) {
                             ) : null}
                         </div>
                         <div className="product-info px-4">
-                            {product.allPaSeller.nodes.length ? product.allPaSeller.nodes.map((seller, index) => (
-                                <Link href={"/seller/"+seller.slug} className="brand-name color-primary">{seller.name}</Link>
-                            )) : ''}
+                            {product?.allPaSeller?.nodes && product?.allPaSeller?.nodes.map((seller, index) => (
+                                <Link key={index} href={"/seller/"+seller.slug} className="brand-name color-primary">{seller.name}</Link>
+                            ))}
                             <h4 className="product-view-title">{product.name}</h4>
                             {/* <div
 
