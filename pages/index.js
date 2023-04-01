@@ -3,13 +3,9 @@ import Product from "../src/components/Product";
 import client from '../src/components/ApolloClient';
 import ParentCategoriesBlock from "../src/components/category/category-block/ParentCategoriesBlock";
 import PRODUCTS_AND_CATEGORIES_QUERY from "../src/queries/product-and-categories";
-import HeroCarousel from "../src/components/home/hero-carousel";
 import { Carousel } from 'react-responsive-carousel';
 import React, { useState } from 'react';
-import useLayoutEffect from '../src/components/UseIsomorphicLayoutEffect'
-import Link from "next/link";
 import { getWindowSize } from "../src/functions";
-import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
