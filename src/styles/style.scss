@@ -7,6 +7,10 @@ body {
   background: #efefef;
 }
 
+*:focus {
+  outline: none;
+}
+
 .bg-primary {
   background-color: rgba(14, 128, 197, 0.9);
 }

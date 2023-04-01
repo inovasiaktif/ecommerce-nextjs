@@ -3,13 +3,6 @@ import { gql } from "@apollo/client";
 export const PRODUCT_BY_SLUG_QUERY = gql` query Product($slug: ID!) {
 	product(id: $slug, idType: SLUG) {
 	  id
-	  allPaSeller {
-		nodes {
-		  id
-		  name
-		  slug
-		}
-	  }
 	  productId: databaseId
 	  averageRating
 	  slug
