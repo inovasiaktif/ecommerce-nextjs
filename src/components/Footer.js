@@ -25,7 +25,11 @@ const Footer = ({pageType}) => {
 				}}>
 					<div className="pb-8">
 						<Link href="/privacy-policy" className="color-primary">Kebijakan Privasi</Link>
-						<span className="pl-5">
+						<span style={
+							{
+								"paddingLeft":"1.25rem"
+							}
+						}>
 							<Link href="/term-conditions" className="color-primary">Syarat dan Ketentuan</Link>
 						</span>
 					</div>
