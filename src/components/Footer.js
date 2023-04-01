@@ -1,5 +1,5 @@
-import { Facebook, Instagram, Twitter, Youtube } from "./icons";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Footer = () => {
 	const [hideAppPopup, setHideAppPopup] = useState(true);
@@ -23,26 +23,32 @@ const Footer = () => {
 				}
 			}>
 				<div className="flex-none w-14 h-14">
-					<img src="/images/logo.png" className="m-1" style={{
-						"width": "40px", "height": "40px", "objectFit": "cover", "borderRadius": "5px"
-					}} />
+					<Link href="https://play.google.com/store/apps/details?id=com.inovasiaktif.twa">
+						<img src="/images/logo.png" className="m-1" style={{
+							"width": "40px", "height": "40px", "objectFit": "cover", "borderRadius": "5px"
+						}} />
+					</Link>
 				</div>
-				<div className="flex-initial w-64 pl-2 mt-1" style={
+				<div className="flex-initial w-64 pl-2 mt-0" style={
 					{
 						"width":"100%"
 					}
 				}>
-					<div><b>Aplikasi Inovasi Aktif</b></div>
-					<span style={{ "fontSize": "10px" }}>Solusi untuk berbagai kebutuhanmu</span>
+					<Link href="https://play.google.com/store/apps/details?id=com.inovasiaktif.twa">
+						<div><b>Inovasi Aktif App</b></div>
+						<span style={{ "fontSize": "10px" }}>Solusi untuk berbagai kebutuhanmu</span>
+					</Link>
 				</div>
-				<div className="flex-initial w-64 pl-2 mt-1" style={
+				<div className="flex-initial w-64 pl-2 mt-0" style={
 					{
 						"width":"70%"
 					}
 				}>
-					<img src="/images/google-play-badge.png" style={{
-						"width": "100px", "objectFit": "cover", "borderRadius": "5px"
-					}} />
+					<Link href="https://play.google.com/store/apps/details?id=com.inovasiaktif.twa">
+						<img src="/images/google-play-badge.png" style={{
+							"width": "100px", "objectFit": "cover", "borderRadius": "5px"
+						}} />
+					</Link>
 				</div>
 				<div className="flex-initial w-32 mr-1" style={
 					{
