@@ -83,7 +83,7 @@ const HomepageMenu = ({ t, isHomepage }) => {
     return (
         <>
             <div className="menu flex" style={{
-                "backgroundColor": "rgb(17 76 183 / " + (!isHomepage ? 90 : opacity) + "%)"
+                "backgroundColor": "rgb(14 128 197 / " + (!isHomepage ? 90 : opacity) + "%)"
             }}>
                 <Link className="menu-item" href="/" style={{ "paddingLeft": "0px", "paddingRight": "10px" }}>
                     {productsCount ? <span style={{ "left": badgesLeft }} className="cart-badges">{productsCount}</span> : ''}

@@ -16,7 +16,7 @@ const Footer = () => {
 	}
 
 	return !hideAppPopup && <>
-		<div className="app-modal">
+		<div className="app-modal bg-primary">
 			<div className="flex" style={
 				{
 					"width":"100%"
