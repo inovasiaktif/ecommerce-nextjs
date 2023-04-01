@@ -104,7 +104,7 @@ const CartItemsContainer = () => {
 	}
 
 	return (
-		<div className="content cart product-cart-container container mx-auto px-4 xl:px-0">
+		<div className="content product-cart-container container p-5">
 			{cart ? (
 				<div className="woo-next-cart-wrapper container">
 					<div>
@@ -131,14 +131,24 @@ const CartItemsContainer = () => {
 					{requestError ? <div className="row woo-next-cart-total-container mt-5"> {requestError} </div> : ''}
 				</div>
 			) : (
-				<div className="container mx-auto px-4 xl:px-0">
-					<h2 className="text-2xl mb-5">No items in the cart</h2>
-					<Link href="/">
-						<button className="bg-purple-600 text-white px-5 py-3 rounded-sm">
-							<span className="woo-next-cart-checkout-txt">Add New Products</span>
-							<i className="fas fa-long-arrow-alt-right" />
-						</button>
-					</Link>
+				<div className="container pt-6 text-center">
+					<img src="/images/empty_cart.webp" style={
+						{
+							"width":"250px",
+							"margin": "0 auto"
+						}
+					}/>
+					<h5 className="text-center mb-0 pt-3">Wah, keranjang belanja kamu masih kosong</h5>
+					<div style={
+						{
+							"fontSize":"12px"
+						}
+					}>Yuk, telusuri produk menarik dan jasa yang berguna dari kami!</div>
+					<div className="pt-4">
+						<Link href="/">
+							<button className="px-4 py-2 bg-primary btn">Belanja Sekarang</button>
+						</Link>
+					</div>
 				</div>
 			)}
 		</div>

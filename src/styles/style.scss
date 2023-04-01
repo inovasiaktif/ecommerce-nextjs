@@ -12,7 +12,12 @@ body {
   outline: none;
 }
 
+.btn {
+  border-radius: 2px;
+}
+
 .bg-primary {
+  color: white;
   background-color: rgba(14, 128, 197, 1);
 }
 
@@ -20,10 +25,10 @@ body {
   color: #00a4f7;
 }
 
-.sub-page {
-  margin-top: 3rem;
-  width: 100%;
-}
+// .sub-page {
+//   margin-top: 3rem;
+//   width: 100%;
+// }
 
 #__next {
   margin: 2.75rem auto 0;
