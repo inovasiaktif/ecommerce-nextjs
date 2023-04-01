@@ -6,7 +6,6 @@ const allowedImageWordPressDomain = new URL(process.env.NEXT_PUBLIC_WORDPRESS_UR
 module.exports = {
     // reactStrictMode: true,
     // swcMinify: true,
-    i18n,
     trailingSlash: true,
     webpackDevMiddleware: (config) => {
         config.watchOptions = {
