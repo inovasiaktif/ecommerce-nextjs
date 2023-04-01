@@ -11,3 +11,5 @@ dist/
 .env
 .now
 .yarn
+public/sitemap.xml
+public/sitemap-0.xml
