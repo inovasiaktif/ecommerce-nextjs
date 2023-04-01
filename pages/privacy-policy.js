@@ -4,8 +4,6 @@ export default function PrivacyPolicyPage() {
     return (
         <Layout title="Kebijakan Privasi" menuTitle="Kebijakan Privasi">
             <div className="content p-3">
-                <h5>Kebijakan Privasi</h5>
-                <br />
                 <b>1. PENDAHULUAN</b>
                 <br />
                 <br />

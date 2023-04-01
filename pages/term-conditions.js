@@ -4,8 +4,6 @@ export default function TermConditionsPage() {
     return (
         <Layout title="Syarat dan Ketentuan" menuTitle="Syarat dan Ketentuan">
             <div className="content p-3">
-            <div style={{"fontSize":"16px"}}><b>Syarat dan Ketentuan Penggunaan Situs Web</b></div>
-            <br />
             <div style={{"fontSize":"14px"}}><b>1. Ketentuan</b></div>
 
             <p>Dengan mengakses Situs Web ini, dapat diakses dari https://inovasiaktif.com, Anda setuju untuk terikat dengan Syarat dan Ketentuan Penggunaan Situs Web ini dan setuju bahwa Anda bertanggung jawab atas perjanjian dengan hukum setempat yang berlaku. Jika Anda tidak setuju dengan salah satu persyaratan ini, Anda dilarang mengakses situs ini. Materi yang terkandung dalam Situs Web ini dilindungi oleh undang-undang hak cipta dan merek dagang.</p>
