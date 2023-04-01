@@ -5,7 +5,6 @@ import Router, { useRouter } from 'next/router';
 import NProgress from '../src/components/NProgress'
 import React, { useState, useEffect } from "react";
 import { event, GoogleAnalytics } from "nextjs-google-analytics";
-import { appWithTranslation } from "next-i18next";
 
 NProgress.configure({ showSpinner: false });
 
@@ -49,4 +48,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default appWithTranslation(MyApp)
+export default MyApp

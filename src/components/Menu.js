@@ -12,7 +12,7 @@ const Menu = ({ isHomepage, menuTitle, pageType, t }) => {
     return (
         <>
             {
-                isHomepage ? <HomepageMenu t={t} isHomepage={isHomepage} /> :
+                isHomepage ? <HomepageMenu isHomepage={isHomepage} /> :
                     pageType && pageType == "product" ? <ProductMenu /> :
                         <SubMenu menuTitle={menuTitle} />
             }
@@ -92,7 +92,7 @@ const HomepageMenu = ({ t, isHomepage }) => {
                     }}/>
                 </Link>
                 <div className="menu-item w-full">
-                    <input name="q" placeholder={t("main.Search Product or Services") + "..."} className="search-input" type="text" autoComplete="off" />
+                    <input name="q" placeholder="Cari jasa atau produk..." className="search-input" type="text" autoComplete="off" />
                 </div>
                 <div className="menu-item cart-icon-container">
                     <Link href="/cart">

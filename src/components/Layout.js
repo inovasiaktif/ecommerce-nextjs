@@ -17,7 +17,7 @@ const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noI
           {noIndex && <meta name="robots" content="noindex" />}
         </Head>
         
-        <Menu isHomepage={isHomepage} menuTitle={menuTitle} pageType={pageType} t={t} />
+        <Menu isHomepage={isHomepage} menuTitle={menuTitle} pageType={pageType} />
         {/* <BottomMenu pageType={pageType} product={product} /> */}
         {children}
         <Footer />
