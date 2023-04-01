@@ -27,21 +27,17 @@ const ProductMenu = () => {
                         <ArrowBackOutline color={'white'} height="22px" width="22px" />
                     </a>
                 </div>
-                {/* <div className="menu-item cart-icon-container">
-                    <Link href="/cart">
-                        <a className="bg-icon icon">
-                            {productsCount ? <span style={{ "left": badgesLeft }} className="cart-badges">{productsCount}</span> : ''}
-                            <CartOutline color={'white'} height="22px" width="22px" />
-                        </a>
+                <div className="menu-item cart-icon-container">
+                    <Link href="/cart" className="bg-icon icon">
+                        {productsCount ? <span style={{ "left": badgesLeft }} className="cart-badges">{productsCount}</span> : ''}
+                        <CartOutline color={'white'} height="22px" width="22px" />
                     </Link>
                 </div>
                 <div className="menu-item user-icon-container">
-                    <Link href="/my-account">
-                        <a className="bg-icon icon">
-                            <PersonOutline color={'white'} height="22px" width="22px" />
-                        </a>
+                    <Link href="/my-account" className="bg-icon icon">
+                        <PersonOutline color={'white'} height="22px" width="22px" />
                     </Link>
-                </div> */}
+                </div>
             </div>
         </>
     )

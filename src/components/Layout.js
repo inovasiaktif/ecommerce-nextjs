@@ -16,11 +16,16 @@ const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noI
           <link rel="shortcut icon" href="" />
           {noIndex && <meta name="robots" content="noindex" />}
         </Head>
-        
         <Menu isHomepage={isHomepage} menuTitle={menuTitle} pageType={pageType} />
-        {/* <BottomMenu pageType={pageType} product={product} /> */}
-        {children}
-        <Footer />
+        <BottomMenu pageType={pageType} product={product} />
+        <div style={
+          {
+            "paddingTop": !isHomepage && pageType != "product" ? "50px" : "0px"
+          }
+        }>
+          {children}
+        </div>
+        <Footer pageType={pageType} />
       </ApolloProvider>
     </AppProvider>
   );
