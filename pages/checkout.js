@@ -4,7 +4,7 @@ import GET_COUNTRIES from "../src/queries/get-countries";
 import client from "../src/components/ApolloClient";
 
 const Checkout = ({ data }) => (
-	<Layout title="Checkout" menuTitle="Checkout" noIndex={true}>
+	<Layout title="Checkout" menuTitle="Checkout" pageType="checkout" noIndex={true}>
 		<div className="checkout">
 			<CheckoutForm countriesData={data?.wooCountries ?? {}} />
 		</div>

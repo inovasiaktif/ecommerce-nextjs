@@ -18,6 +18,9 @@ import {
 } from "../../utils/checkout";
 import CheckboxField from "./form-elements/CheckboxField";
 import CLEAR_CART_MUTATION from "../../mutations/clear-cart";
+import CheckoutVouchers from './CheckoutVouchers';
+import CheckoutPoints from './CheckoutPoints';
+import CheckoutTermsConditions from './CheckoutTermsConditions';
 
 // Use this for testing purposes, so you dont have to fill the checkout form over an over again.
 // const defaultCustomerInfo = {
@@ -206,8 +209,6 @@ const CheckoutForm = ({countriesData}) => {
     // Loading state
     const isOrderProcessing = checkoutLoading || isStripeOrderProcessing;
 
-    console.log('CART: '+cart)
-
     return (
         <>
             {cart ? (
@@ -254,15 +255,49 @@ const CheckoutForm = ({countriesData}) => {
                         <div className="your-orders">
                             <YourOrder cart={cart}/>
                             <PaymentModes input={input} handleOnChange={handleOnChange}/>
-                            <div className="woo-next-place-order-btn-wrap mt-5">
-                                <button
-                                    disabled={isOrderProcessing}
-                                    className={cx(
-                                        'px-4 py-2 bg-primary btn',
-                                        {'opacity-50': isOrderProcessing}
-                                    )}
-                                    type="submit"
-                                >Pesan Sekarang</button>
+                            <CheckoutVouchers input={input} handleOnChange={handleOnChange}/>
+                            <CheckoutPoints input={input} handleOnChange={handleOnChange}/>
+                            <CheckoutTermsConditions input={input} handleOnChange={handleOnChange}/>
+                            <div className="woo-next-place-order-btn-wrap mt-1 content w-full pl-3 pr-3 pt-2 pb-2" style={
+                                {
+                                    "position":"fixed",
+                                    "bottom": 0
+                                }
+                            }>
+                                <table style={
+                                    {
+                                        "width":"100%"
+                                    }
+                                }>
+                                    <tbody>
+                                    <tr>
+                                        <td style={
+                                            {
+                                                "width":"50%",
+                                                "textAlign": "left"
+                                            }
+                                        }>
+                                            <div>Total Pembayaran</div>
+                                            <div className='color-primary'>{cart?.totalProductsPrice}</div>
+                                        </td>
+                                        <td style={
+                                            {
+                                                "width":"50%",
+                                                "textAlign": "right"
+                                            }
+                                        }>
+                                            <button
+                                                disabled={isOrderProcessing}
+                                                className={cx(
+                                                    'px-4 py-2 bg-primary btn',
+                                                    {'opacity-50': isOrderProcessing}
+                                                )}
+                                                type="submit"
+                                            >Pesan Sekarang</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
 
                             {/* Checkout Loading*/}

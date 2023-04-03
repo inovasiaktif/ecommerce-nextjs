@@ -24,6 +24,14 @@ hr {
   padding-bottom: 0.5rem;
 }
 
+.border-top {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+svg {
+  display: inline-block !important;
+}
+
 .bg-primary {
   color: white;
   background-color: rgba(14, 128, 197, 1);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 const Footer = ({pageType}) => {
-	return <>
+	return pageType != "checkout" && <>
 		<AppModal pageType={pageType} />
 		<center>
 			<hr style={
