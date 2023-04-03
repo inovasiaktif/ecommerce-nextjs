@@ -131,7 +131,7 @@ const CartItemsContainer = () => {
 					{requestError ? <div className="row woo-next-cart-total-container mt-5"> {requestError} </div> : ''}
 				</div>
 			) : (
-				<div className="container pt-6 text-center">
+				<div className="container text-center">
 					<img src="/images/empty_cart.webp" style={
 						{
 							"width":"250px",

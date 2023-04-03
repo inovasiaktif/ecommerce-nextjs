@@ -81,10 +81,10 @@ const CheckoutForm = ({countriesData}) => {
     // Get Cart Data.
     const {data} = useQuery(GET_CART, {
         notifyOnNetworkStatusChange: true,
-        onCompleted: () => {
+        onCompleted: result => {
             // Update cart in the localStorage.
-            const updatedCart = getFormattedCart(data);
-            localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart));
+            const updatedCart = getFormattedCart(result);
+            // localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart));
 
             // Update cart data in React Context.
             setCart(updatedCart);
@@ -206,13 +206,14 @@ const CheckoutForm = ({countriesData}) => {
     // Loading state
     const isOrderProcessing = checkoutLoading || isStripeOrderProcessing;
 
+    console.log('CART: '+cart)
+
     return (
         <>
             {cart ? (
                 <form onSubmit={handleFormSubmit} className="woo-next-checkout-form">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-                        <div>
-                            {/*Shipping Details*/}
+                        {/* <div>
                             <div className="billing-details">
                                 <h2 className="text-xl font-medium mb-4">Shipping Details</h2>
                                 <Address
@@ -235,7 +236,6 @@ const CheckoutForm = ({countriesData}) => {
                                     containerClassNames="mb-4 pt-4"
                                 />
                             </div>
-                            {/*Billing Details*/}
                             {input?.billingDifferentThanShipping ? (
                                 <div className="billing-details">
                                     <h2 className="text-xl font-medium mb-4">Billing Details</h2>
@@ -250,28 +250,19 @@ const CheckoutForm = ({countriesData}) => {
                                     />
                                 </div>
                             ) : null}
-
-                        </div>
-                        {/* Order & Payments*/}
+                        </div> */}
                         <div className="your-orders">
-                            {/*	Order*/}
-                            <h2 className="text-xl font-medium mb-4">Your Order</h2>
                             <YourOrder cart={cart}/>
-
-                            {/*Payment*/}
                             <PaymentModes input={input} handleOnChange={handleOnChange}/>
-
                             <div className="woo-next-place-order-btn-wrap mt-5">
                                 <button
                                     disabled={isOrderProcessing}
                                     className={cx(
-                                        'bg-purple-600 text-white px-5 py-3 rounded-sm w-auto xl:w-full',
+                                        'px-4 py-2 bg-primary btn',
                                         {'opacity-50': isOrderProcessing}
                                     )}
                                     type="submit"
-                                >
-                                    Place Order
-                                </button>
+                                >Pesan Sekarang</button>
                             </div>
 
                             {/* Checkout Loading*/}

@@ -5,7 +5,7 @@ import client from "../src/components/ApolloClient";
 
 const Checkout = ({ data }) => (
 	<Layout title="Checkout" menuTitle="Checkout" noIndex={true}>
-		<div className="checkout container mx-auto my-32 px-4 xl:px-0">
+		<div className="checkout">
 			<CheckoutForm countriesData={data?.wooCountries ?? {}} />
 		</div>
 	</Layout>
@@ -24,5 +24,4 @@ export async function getStaticProps() {
 		},
 		revalidate: 1
 	};
-
 }
