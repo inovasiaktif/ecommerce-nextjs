@@ -14,18 +14,16 @@ const Product = (props) => {
 	return (
 		// @TODO Need to handle Group products differently.
 		undefined !== product && 'GroupProduct' !== product.__typename ? (
-			<div className="product">
-				<Link href={`/product/${product?.slug}`} >
-					<Image
-						className="object-cover bg-gray-100"
-						width="308"
-						height="308"
-						loading="lazy"
-						sourceUrl={product?.image?.sourceUrl ?? ''}
-						defaultImgUrl={DEFAULT_PRODUCT_HOME_IMG_URL}
-						altText={product?.image?.altText ?? product?.slug}
-					/>
-				</Link>
+			<Link href={`/product/${product?.slug}`} className="product">
+				<Image
+					className="object-cover bg-gray-100"
+					width="308"
+					height="308"
+					loading="lazy"
+					sourceUrl={product?.image?.sourceUrl ?? ''}
+					defaultImgUrl={DEFAULT_PRODUCT_HOME_IMG_URL}
+					altText={product?.image?.altText ?? product?.slug}
+				/>
 				<div className="product-info">
 					{product?.allPaSeller?.nodes && product?.allPaSeller?.nodes.map((seller, index) => (
 						<Link key={index} href={"/seller/"+seller.slug} className="brand-name color-primary">{seller.name}</Link>
@@ -35,8 +33,7 @@ const Product = (props) => {
 					</h3>
 					<Price salesPrice={product?.price} regularPrice={product?.regularPrice} />
 				</div>
-
-			</div>
+			</Link>
 		) : (
 			''
 		)

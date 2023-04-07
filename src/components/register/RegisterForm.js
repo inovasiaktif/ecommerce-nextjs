@@ -9,7 +9,10 @@ const RegisterForm = () => {
     const [requestError, setRequestError] = useState(null);
 
     const [register, { data: clearCartRes, loading: clearCartProcessing, error: clearCartError }] = useMutation(REGISTER_USER_MUTATION, {
-        onCompleted: () => {
+        onCompleted: result => {
+            console.log(result)
+            localStorage.setItem("accessToken", result?.registerUser?.registerUser?.user?.jwtAuthToken);
+
             refetch();
         },
         onError: (error) => {
