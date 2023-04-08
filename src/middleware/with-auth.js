@@ -77,6 +77,9 @@ export const withApolloClient = (handler) => async (context) => {
     },
     handleError: (err) => {
       console.warn('Your refresh token is invalid. Please log in again.');
+
+      context.res.writeHead(302, { Location: '/login' });
+      context.res.end();
     },
   });
 

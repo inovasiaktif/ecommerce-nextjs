@@ -16,13 +16,6 @@ const MyAccountPage = (props) => {
 		  method: 'GET'
 		});
 		
-		if (!response.ok) {
-		  const { message } = await response.json();
-		  setError(message);
-
-		  return;
-		}
-		
 		router.push('/');
 	};
 
