@@ -2,11 +2,29 @@ import Link from "next/link";
 import Layout from "../../../src/components/Layout";
 import { withApolloClient } from "../../../src/middleware/with-auth";
 import CURRENT_CUSTOMER_QUERY from "../../../src/queries/current-customer";
+import { useRouter } from "next/router";
 
 const MyAccountPage = (props) => {
 	const { customer } = props || {};
 
-	// console.log(customer)
+	const router = useRouter();
+
+	const handleLogout = async (e) => {
+		e.preventDefault();
+		
+		const response = await fetch('/api/customer/logout', {
+		  method: 'GET'
+		});
+		
+		if (!response.ok) {
+		  const { message } = await response.json();
+		  setError(message);
+
+		  return;
+		}
+		
+		router.push('/');
+	};
 
     return (
         <Layout title="Akun Saya" menuTitle="Akun Saya">
@@ -22,7 +40,7 @@ const MyAccountPage = (props) => {
 					</div>
 				</Link>
 				<div className="pl-3 pb-5">
-					<button className="btn bg-primary">Logout</button>
+					<button className="btn bg-primary" onClick={handleLogout}>Logout</button>
 				</div>
 			</div>
         </Layout>
