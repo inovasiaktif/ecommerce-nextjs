@@ -1,34 +1,28 @@
-import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
-// import { setContext } from "apollo-link-context";
-import { parseCookies } from "nookies";
-import { setContext } from "@apollo/client/link/context";
+import { ApolloClient, InMemoryCache, ApolloLink } from "@apollo/client";
+import { parseCookies, setCookie } from "nookies";
 import { HttpLink } from "@apollo/client/link/http";
 import fetch from 'isomorphic-unfetch';
 import jwtDecode from 'jwt-decode';
-import { useRouter } from "next/router";
+import { TokenRefreshLink } from "apollo-link-token-refresh";
 
 export const withApolloClient = (handler) => async (context) => {
-  // const router = useRouter();
-
   const cookies = parseCookies(context);
-  const accessToken = cookies.accessToken;
-  const refreshToken = cookies.refreshToken;
+  let currentAccessToken = cookies.accessToken ?? '';
+  const refreshToken = cookies.refreshToken ?? '';
 
-  const decodedToken = jwtDecode(accessToken);
-  const tokenExpired = Date.now() >= decodedToken.exp * 1000;
+  const tokenExpired = () => {
+    if (!currentAccessToken) {
+      return false;
+    }
+    try {
+      const { exp } = jwtDecode(currentAccessToken);
+      if (Date.now() >= exp * 1000) {
+        return false;
+      }
 
-  if (tokenExpired) {
-    const response = await fetch('/api/auth/refreshToken', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ refreshToken }),
-    });
-
-    // If response is not OK, set error message
-    if (!response.ok) {
-      // const { message } = await response.json();
-      console.log(await response.json())
-      // return;
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 
@@ -37,27 +31,58 @@ export const withApolloClient = (handler) => async (context) => {
     fetch
   });
   
-  const authLink = setContext((_, { headers }) => {
-    if (accessToken && refreshToken) {
-      return {
-        headers: {
-          ...headers,
-          authorization: `Bearer ${accessToken}`,
-        },
-      };
-    } else if (refreshToken) {
-      console.log('REFRESH DONG')
-      // Token is expired, refresh it
-      // Implement your refresh logic here
-    } else {
-      console.log('LOGIN DONG')
-      // window.location.href('/login');
-    }
+  const authLink = new ApolloLink((operation, forward) => {
+    operation.setContext(({ headers = {} }) => ({
+      headers: {
+        ...headers,
+        authorization: currentAccessToken ? `Bearer ${currentAccessToken}` : '',
+      },
+    }));
+
+    return forward(operation);
+  });
+
+  const fetchAccessToken = async () => {
+    const res = await fetch('http://localhost:3000/api/auth/refresh-token', { 
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ refreshToken })
+    });
+
+    return await res.json();
+  };
+
+  const tokenRefreshLink = new TokenRefreshLink({
+    accessTokenField: 'accessToken',
+    isTokenValidOrUndefined: () => {
+      return tokenExpired();
+    },
+    fetchAccessToken,
+    handleResponse: (operation, accessTokenField) => (response) => {
+      if (!response) return { accessToken: null };
+
+      return { accessToken: response.accessToken };
+    },
+    handleFetch: (accessToken) => {
+      currentAccessToken = accessToken;
+      
+      // Set the cookie on the server-side
+      setCookie(context, 'accessToken', accessToken, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+        secure: false,
+        sameSite: 'strict',
+        httpOnly: true
+      });
+    },
+    handleError: (err) => {
+      console.warn('Your refresh token is invalid. Please log in again.');
+    },
   });
 
   const apolloClient = new ApolloClient({
     // ssrMode: true,
-    link: authLink.concat(httpLink),
+    link: ApolloLink.from([tokenRefreshLink, authLink, httpLink]),
     cache: new InMemoryCache(),
     onError: (error) => {
       const { graphQLErrors, networkError } = error;

@@ -34,7 +34,7 @@ const ProductMenu = () => {
                     </Link>
                 </div>
                 <div className="menu-item user-icon-container">
-                    <Link href="/my-account" className="bg-icon icon">
+                    <Link href="/customer/account" className="bg-icon icon">
                         <PersonOutline color={'white'} height="22px" width="22px" />
                     </Link>
                 </div>

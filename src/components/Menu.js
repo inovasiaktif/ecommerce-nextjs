@@ -116,7 +116,7 @@ const HomepageMenu = ({ t, isHomepage }) => {
                     </Link>
                 </div>
                 <div className="menu-item user-icon-container">
-                    <Link href="/my-account">
+                    <Link href="/customer/account">
                         {/* <a className="account"> */}
                         <svg viewBox="0 0 28 28" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M10.8166 17.0039531c-1.5729-1.03425-2.6166-2.8161-2.6166-4.82895v-2.1c0-3.17625 2.5977-5.775 5.775-5.775 3.17625 0 5.775 2.59875 5.775 5.775v2.1c0 2.016-1.04685 3.801-2.625 4.8342v-.0042l6.18975 2.667c.3864.1659.63525.546.63525.9639v2.5641c0 .5775-.4725 1.05-1.05 1.05H5.05c-.5775 0-1.05-.4725-1.05-1.05v-2.5641c0-.4179.24885-.798.6342-.9639l6.1908-2.667-.0084-.00105z" stroke="#FFF" strokeWidth="1.5" fill="none" fillRule="evenodd" strokeLinejoin="round"></path></svg>
                         {/* </a> */}

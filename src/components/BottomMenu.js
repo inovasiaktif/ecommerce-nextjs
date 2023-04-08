@@ -26,7 +26,7 @@ const DefaultBottomMenu = () => {
                         <BottomMenuItem title="Home" href="/" icon={<HomeOutline color={'intherit'} height="25px" width="25px" />} />
                         <BottomMenuItem title="Artikel" href="/artikel" icon={<NewspaperOutline color={'intherit'} height="25px" width="25px" />} />
                         <BottomMenuItem title="Chat" href="/chat" icon={<ChatbubblesOutline color={'intherit'} height="25px" width="25px" />} />
-                        <BottomMenuItem title="Akun Saya" href="/my-account" icon={<PersonOutline color={'intherit'} height="25px" width="25px" />} />
+                        <BottomMenuItem title="Akun Saya" href="/customer/account" icon={<PersonOutline color={'intherit'} height="25px" width="25px" />} />
                     </div>
                 </section>
             </div>
