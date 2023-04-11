@@ -10,6 +10,12 @@ export const withApolloClient = (handler) => async (context) => {
   let currentAccessToken = cookies.accessToken ?? '';
   const refreshToken = cookies.refreshToken ?? '';
 
+  context.isLoggedIn = true;
+
+  if (!currentAccessToken || !refreshToken) {
+    context.isLoggedIn = false;
+  }
+
   const tokenExpired = () => {
     if (!currentAccessToken) {
       return false;
@@ -76,33 +82,26 @@ export const withApolloClient = (handler) => async (context) => {
       });
     },
     handleError: (err) => {
-      console.warn('Your refresh token is invalid. Please log in again.');
-
-      context.res.writeHead(302, { Location: '/login' });
-      context.res.end();
+      context.isLoggedIn = false;
     },
   });
 
   const apolloClient = new ApolloClient({
-    // ssrMode: true,
+    ssrMode: true,
     link: ApolloLink.from([tokenRefreshLink, authLink, httpLink]),
     cache: new InMemoryCache(),
     onError: (error) => {
       const { graphQLErrors, networkError } = error;
   
-      if (networkError && networkError.statusCode === 401) {
-        localStorage.removeItem('token');
-        window.location.href = '/login';
-      }
+      // if (networkError && networkError.statusCode === 401) {
+      // }
   
-      if (graphQLErrors) {
-        graphQLErrors.forEach(({ extensions }) => {
-          if (extensions && extensions.code === 'UNAUTHENTICATED') {
-            localStorage.removeItem('token');
-            window.location.href = '/login';
-          }
-        });
-      }
+      // if (graphQLErrors) {
+      //   graphQLErrors.forEach(({ extensions }) => {
+      //     if (extensions && extensions.code === 'UNAUTHENTICATED') {
+      //     }
+      //   });
+      // }
     },
   });
 

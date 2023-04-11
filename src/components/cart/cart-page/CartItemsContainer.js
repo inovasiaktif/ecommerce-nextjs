@@ -143,7 +143,7 @@ const CartItemsContainer = () => {
 						{
 							"fontSize":"12px"
 						}
-					}>Yuk, telusuri produk menarik dan jasa yang berguna dari kami!</div>
+					}>Yuk, cari jasa dan produk sesuai kebutuhanmu!</div>
 					<div className="pt-4">
 						<Link href="/">
 							<button className="px-4 py-2 bg-primary btn">Belanja Sekarang</button>

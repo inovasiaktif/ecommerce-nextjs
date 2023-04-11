@@ -24,13 +24,11 @@ export default function CategorySingle(props) {
 
     return (
         <Layout title={categoryTitle(categoryName)} menuTitle={categoryName}>
-            <div style={{ "marginTop": "55px" }}>
-                <div className="products container mx-auto xl:px-0">
-                    <div className="product-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
-                        {undefined !== products && products?.length ? (
-                            products.map(product => <Product key={product?.id} product={product} />)
-                        ) : ''}
-                    </div>
+            <div className="products container mx-auto xl:px-0">
+                <div className="product-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
+                    {undefined !== products && products?.length ? (
+                        products.map(product => <Product key={product?.id} product={product} />)
+                    ) : ''}
                 </div>
             </div>
         </Layout>
@@ -62,6 +60,8 @@ export async function getStaticPaths() {
     })
 
     const pathsData = []
+
+    console.log(data?.nodes)
 
     data?.productCategories?.nodes && data?.productCategories?.nodes.map((productCategory) => {
         if (!isEmpty(productCategory?.slug)) {

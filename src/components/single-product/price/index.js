@@ -32,16 +32,19 @@ const Price = ({ regularPrice = 0, salesPrice }) => {
     const productMeta = discountPercent(regularPrice, salesPrice);
 
     return (
-        <div className="product-price mr-3">
-            {/* Regular price */}
+        <div className="product-price mr-3 pt-2">
             {productMeta?.discountPercent ? <span className="product-price mr-2">{salesPrice}</span> : null}
-
             <div>
-                {/* Discounted price */}
-                <span className={productMeta?.strikeThroughClass}>{regularPrice}</span>
-
-                {/* Discount percent */}
-                <span className="product-discount font-bold text-sm font-normal">{productMeta?.discountPercent}</span>
+                <span className={productMeta?.strikeThroughClass} style={
+                    {
+                        "fontSize": parseInt(salesPrice?.substring(2)) !== parseInt(regularPrice?.substring(2)) ? "12px" : "14px"
+                    }
+                }>{regularPrice}</span>
+                <span className="product-discount font-bold text-sm font-normal" style={
+                    {
+                        "fontSize":"12px"
+                    }
+                }>{productMeta?.discountPercent}</span>
             </div>
         </div>
     )

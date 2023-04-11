@@ -10,6 +10,8 @@ NProgress.configure({ showSpinner: false });
 
 let timeout;
 Router.events.on('routeChangeStart', () => {
+  clearTimeout(timeout);
+  
   timeout = setTimeout(() => {
     NProgress.start()
   }, 100);
