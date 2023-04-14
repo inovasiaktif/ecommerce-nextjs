@@ -16,6 +16,7 @@ const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noI
           <link rel="shortcut icon" href="/images/logo.png" />
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
           <meta charSet="utf-8" />
+          <meta name="google" content="notranslate" />
           {noIndex && <meta name="robots" content="noindex" />}
         </Head>
         <Menu isHomepage={isHomepage} menuTitle={menuTitle} pageType={pageType} />
