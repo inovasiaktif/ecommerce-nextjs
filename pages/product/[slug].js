@@ -7,6 +7,7 @@ import { isEmpty } from 'lodash';
 import GalleryCarousel from "../../src/components/single-product/gallery-carousel";
 import Price from "../../src/components/single-product/price";
 import Link from 'next/link';
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default function Product(props) {
     const { product } = props;
@@ -27,7 +28,7 @@ export default function Product(props) {
                 <div className="content single-product container mb-6 xl:px-0 pb-3">
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="product-images">
-                            {!isEmpty(product?.galleryImages?.nodes) ? (
+                            {/* {!isEmpty(product?.galleryImages?.nodes) ? (
                                 <GalleryCarousel gallery={product?.galleryImages?.nodes} />
                             ) : !isEmpty(product.image) ? (
                                 <img
@@ -37,7 +38,12 @@ export default function Product(props) {
                                     height="auto"
                                     srcSet={product?.image?.srcSet}
                                 />
-                            ) : null}
+                            ) : null} */}
+                            <TransformWrapper>
+                                <TransformComponent>
+                                    <img src={product?.image?.sourceUrl} />
+                                </TransformComponent>
+                            </TransformWrapper>
                         </div>
                         <div className="product-info px-4">
                             {product?.allPaSeller?.nodes && product?.allPaSeller?.nodes.map((seller, index) => (

@@ -54,6 +54,7 @@
     "react-loading": "^2.0.3",
     "react-modal": "^3.16.1",
     "react-responsive-carousel": "^3.2.23",
+    "react-zoom-pan-pinch": "^3.0.7",
     "sass": "^1.29.0",
     "stripe": "^8.148.0",
     "styled-components": "^5.3.6",

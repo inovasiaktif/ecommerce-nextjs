@@ -11,7 +11,7 @@ const ParentCategoriesBlock = (props) => {
 		<>
 			{productCategories.length ? 
 				productCategories.map((productCategory, index) => 
-					productCategory.slug != "others" && (
+					productCategory.slug != "lainnya" && (
 						<div className="horizontal-categories p-1" key={index}>
 							<div className="section-grid flex">
 								<div className="title">{productCategory.name.toUpperCase()}</div>
