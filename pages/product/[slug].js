@@ -86,6 +86,7 @@ function ProductGalleryPopup({ product })
         minIcon={false}
         thumbnailWidth="50"
         thumbnailHeight="50"
+        hasThumbnailsAtMax={false}
         images={images} />
     );
 }
