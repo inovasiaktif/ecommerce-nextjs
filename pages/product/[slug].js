@@ -8,6 +8,10 @@ import GalleryCarousel from "../../src/components/single-product/gallery-carouse
 import Price from "../../src/components/single-product/price";
 import Link from 'next/link';
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import Carousel from 'react-gallery-carousel';
+import 'react-gallery-carousel/dist/index.css';
+//
+// import "./styles.css";
 
 export default function Product(props) {
     const { product } = props;
@@ -39,11 +43,7 @@ export default function Product(props) {
                                     srcSet={product?.image?.srcSet}
                                 />
                             ) : null} */}
-                            <TransformWrapper>
-                                <TransformComponent>
-                                    <img src={product?.image?.sourceUrl} />
-                                </TransformComponent>
-                            </TransformWrapper>
+                            <ProductGalleryPopup product={product} />
                         </div>
                         <div className="product-info px-4">
                             {product?.allPaSeller?.nodes && product?.allPaSeller?.nodes.map((seller, index) => (
@@ -69,6 +69,26 @@ export default function Product(props) {
     );
 };
 
+function ProductGalleryPopup({ product }) 
+{
+    const images = product?.galleryImages?.nodes.map((image) => ({
+        src: image.mediaItemUrl
+    }));
+
+    return (
+        <Carousel 
+        shouldMaximizeOnClick={true} 
+        shouldMinimizeOnClick={true} 
+        shouldMinimizeOnSwipeDown={false} 
+        playIcon=""
+        hasIndexBoard={false}
+        maxIcon={false}
+        minIcon={false}
+        thumbnailWidth="50"
+        thumbnailHeight="50"
+        images={images} />
+    );
+}
 
 export async function getStaticProps(context) {
     const { params: { slug } } = context
