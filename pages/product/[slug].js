@@ -71,9 +71,12 @@ export default function Product(props) {
 
 function ProductGalleryPopup({ product }) 
 {
-    const images = product?.galleryImages?.nodes.map((image) => ({
+    const rawImages = [{mediaItemUrl: product?.image?.sourceUrl}].concat(product?.galleryImages?.nodes)
+    const images = rawImages.map((image) => ({
         src: image.mediaItemUrl
     }));
+
+    console.log(product?.galleryImages?.nodes)
 
     return (
         <Carousel 
@@ -87,6 +90,7 @@ function ProductGalleryPopup({ product })
         thumbnailWidth="50"
         thumbnailHeight="50"
         hasThumbnailsAtMax={false}
+        // hasThumbnails={product?.galleryImages?.nodes.length ? true : false}
         images={images} />
     );
 }
