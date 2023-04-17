@@ -24,14 +24,13 @@
     }
 
     .react-horizontal-scrolling-menu--scroll-container {
-        height: 100%;
-        padding-top: 10px;
+        height: 195px;
+        padding-top: 20px;
         flex-wrap: wrap;
         flex-direction: column;
     }
 
     .category-name {
-        margin-top: 5px !important;
         width: 85px;
         margin: 0 auto;
         display: -webkit-box;
@@ -39,7 +38,7 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         max-height: 2.625rem;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 1.2rem;
         color: rgba(0, 0, 0, .87);
         word-wrap: break-word;
@@ -48,7 +47,7 @@
     }
 
     .react-horizontal-scrolling-menu--item {
-        height: 100px;
+        height: 80px;
         min-width: 22.22222%;
         text-align: center;
     }
