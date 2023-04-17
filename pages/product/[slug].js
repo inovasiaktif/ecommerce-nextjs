@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
+import { useEffect, useRef, useState } from 'react';
 //
 // import "./styles.css";
 
@@ -76,7 +77,47 @@ function ProductGalleryPopup({ product })
         src: image.mediaItemUrl
     }));
 
-    console.log(product?.galleryImages?.nodes)
+    const router = useRouter();
+    const modalRef = useRef(null);
+    const [isMax, setIsMax] = useState(false);
+
+    // useEffect(() => {
+    //     router.beforePopState(({ as }) => {
+    //         if (as !== router.asPath) {
+    //             modalRef.current.minimize();
+
+    //             console.log('OK')
+                
+    //             return false;
+    //         }
+
+    //         return true;
+    //     });
+    
+    //     return () => {
+    //         router.beforePopState(() => true);
+    //     };
+    // }, [router]);
+
+    // console.log(isMax)
+
+    // if (isMax) {
+    // useEffect(() => {
+        
+    //         // history.pushState(null, '', router.asPath);
+    //         window.addEventListener('popstate', function (event) {
+    //             if (!isMax) {
+    //             // console.log('ini'+isMax)
+    //             modalRef.current.minimize();
+
+    //             history.pushState(null, '', router.asPath);
+    //         } else {
+    //             router.back();
+    //         }
+    //         });
+       
+    // }, []);
+// }
 
     return (
         <Carousel 
@@ -90,6 +131,14 @@ function ProductGalleryPopup({ product })
         thumbnailWidth="50"
         thumbnailHeight="50"
         hasThumbnailsAtMax={false}
+        ref={modalRef}
+        onTap={() => {
+            if (isMax) {
+                setIsMax(false);
+            } else {
+                setIsMax(true);
+            }
+        }}
         // hasThumbnails={product?.galleryImages?.nodes.length ? true : false}
         images={images} />
     );

@@ -28,6 +28,11 @@ const PRODUCTS_AND_CATEGORIES_QUERY = gql`query {
       id
       name
       slug
+      image {
+        id
+        sourceUrl
+        srcSet
+      }
       children {
         nodes {
           id
