@@ -7,7 +7,7 @@ const ParentCategoriesBlock = (props) => {
 
 	const { productCategories, style, categoryView } = props || {};
 
-	const otherImage = {sourceUrl:"/images/category/others.png"};
+	const otherImage = {sourceUrl: process.env.NEXT_PUBLIC_WORDPRESS_URL+"/wp-content/uploads/others.png"};
 
 	return (
 		<>
