@@ -8,8 +8,12 @@ export default function CategoryList(props) {
     const { productCategories } = props || {};
 
     return (
-        <Layout title="Semua Kategori" menuTitle="Kategori">
-            <ParentCategoriesBlock productCategories={productCategories} />
+        <Layout title="Layanan" menuTitle="Layanan">
+            <ParentCategoriesBlock categoryView={true} productCategories={productCategories} style={
+                {
+                    "paddingBottom":"20px"
+                }
+            }/>
         </Layout>
     )
 };

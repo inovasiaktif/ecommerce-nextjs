@@ -1,13 +1,12 @@
-import Layout from "../../src/components/Layout";
-import client from "../../src/components/ApolloClient";
-import Product from "../../src/components/Product";
-import { PRODUCT_BY_CATEGORY_SLUG, PRODUCT_CATEGORIES_SLUGS } from "../../src/queries/product-by-category";
+import Layout from "../src/components/Layout";
+import client from "../src/components/ApolloClient";
+import Product from "../src/components/Product";
+import { PRODUCT_BY_CATEGORY_SLUG, PRODUCT_CATEGORIES_SLUGS } from "../src/queries/product-by-category";
 import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
-import { getCurrentMonthName, getCurrentYear } from "../../src/functions";
 
 function categoryTitle(name) {
-    return name + " Harga Termurah | Model Terbaru " + getCurrentMonthName() + " " + getCurrentYear();
+    return name + " | Inovasi Aktif";
 }
 
 export default function CategorySingle(props) {
@@ -24,8 +23,7 @@ export default function CategorySingle(props) {
 
     return (
         <Layout title={categoryTitle(categoryName)} menuTitle={categoryName}>
-            
-                    {undefined !== products && products?.length ? (
+            {undefined !== products && products?.length ? (
                         <div className="products container mx-auto xl:px-0">
                         <div className="product-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
                         {products.map(product => <Product key={product?.id} product={product} />)}
@@ -38,7 +36,6 @@ export default function CategorySingle(props) {
                             }
                         }>Belum ada produk atau jasa.</div>
                     </>}
-                
         </Layout>
     )
 };
