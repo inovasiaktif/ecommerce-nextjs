@@ -6,8 +6,6 @@ import CURRENT_CUSTOMER_QUERY from "../../../src/queries/current-customer";
 const OrderHistoryPage = (props) => {
 	const { customer } = props || {};
 
-	// console.log(customer)
-
     return (
         <Layout title="Akun Saya" menuTitle="Akun Saya">
 			<div className="content">

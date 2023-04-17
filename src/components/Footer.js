@@ -4,14 +4,14 @@ import Link from "next/link";
 const Footer = ({pageType}) => {
 	return pageType != "checkout" && <>
 		<AppModal pageType={pageType} />
-		<center>
+		{/* <center>
 			<hr style={
 				{
 					"borderColor": "rgb(216 216 216)",
 					"width":"90%"
 				}
 			} />
-		</center>
+		</center> */}
 		<div className="footer p-6 text-white" style={
 			{
 				"paddingBottom": "100px"

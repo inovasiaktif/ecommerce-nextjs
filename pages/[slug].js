@@ -66,8 +66,6 @@ export async function getStaticPaths() {
 
     const pathsData = []
 
-    console.log(data?.nodes)
-
     data?.productCategories?.nodes && data?.productCategories?.nodes.map((productCategory) => {
         if (!isEmpty(productCategory?.slug)) {
             pathsData.push({ params: { slug: productCategory?.slug } })

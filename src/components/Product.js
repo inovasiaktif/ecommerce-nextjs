@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import AddToCartButton from '../components/cart/AddToCartButton';
 import Price from "./single-product/price";
 import Image from "../image";
 import { DEFAULT_PRODUCT_HOME_IMG_URL } from "../constants/urls";
@@ -8,8 +7,6 @@ import { getProductSeller } from '../utils/product';
 
 const Product = (props) => {
 	const { product } = props;
-
-	// console.log("ffff . "+seller ? seller.name : 'NO')
 
 	return (
 		// @TODO Need to handle Group products differently.

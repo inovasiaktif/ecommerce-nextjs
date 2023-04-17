@@ -11,13 +11,9 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
 import { useEffect, useRef, useState } from 'react';
-//
-// import "./styles.css";
 
 export default function Product(props) {
     const { product } = props;
-
-    // console.log(product)
 
     const router = useRouter()
 
@@ -28,7 +24,7 @@ export default function Product(props) {
     }
 
     return (
-        <Layout title={"Jual " + product && product.name + " | IA Digital Printing"} pageType="product" product={product}>
+        <Layout title={"Jual " + product && product.name + " | Inovasi Aktif"} pageType="product" product={product}>
             {product ? (
                 <div className="content single-product container mb-6 xl:px-0 pb-3">
                     <div className="grid md:grid-cols-2 gap-4">
@@ -85,8 +81,6 @@ function ProductGalleryPopup({ product })
     //     router.beforePopState(({ as }) => {
     //         if (as !== router.asPath) {
     //             modalRef.current.minimize();
-
-    //             console.log('OK')
                 
     //             return false;
     //         }
@@ -99,15 +93,12 @@ function ProductGalleryPopup({ product })
     //     };
     // }, [router]);
 
-    // console.log(isMax)
-
     // if (isMax) {
     // useEffect(() => {
         
     //         // history.pushState(null, '', router.asPath);
     //         window.addEventListener('popstate', function (event) {
     //             if (!isMax) {
-    //             // console.log('ini'+isMax)
     //             modalRef.current.minimize();
 
     //             history.pushState(null, '', router.asPath);

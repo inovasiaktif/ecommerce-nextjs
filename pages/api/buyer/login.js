@@ -19,8 +19,6 @@ export default async function login(req, res) {
       context: { headers: { cookie: req.headers.cookie } },
     });
 
-    // console.log(data)
-
     // Set the cookie on the server-side
     setCookie({res}, 'accessToken', data.login.authToken, {
       maxAge: 30 * 24 * 60 * 60,
