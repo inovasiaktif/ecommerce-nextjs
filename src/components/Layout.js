@@ -18,6 +18,7 @@ const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noI
           <meta charSet="utf-8" />
           <meta name="google" content="notranslate" />
           {noIndex && <meta name="robots" content="noindex" />}
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8615035709040167" crossorigin="anonymous"></script>
         </Head>
         <Menu isHomepage={isHomepage} menuTitle={menuTitle} pageType={pageType} />
         <BottomMenu pageType={pageType} product={product} />
