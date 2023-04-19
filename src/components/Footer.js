@@ -37,6 +37,7 @@ const Footer = ({pageType}) => {
 				</div>
 			</div>
 		</div>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8615035709040167" crossorigin="anonymous"></script>
 	</>
 }
 
@@ -71,12 +72,12 @@ function AppModal({pageType})
 				</div>
 				<div className="flex-initial w-64 pl-2 mt-0" style={
 					{
-						"width":"100%"
+						"width":"85%"
 					}
 				}>
 					<Link href="https://play.google.com/store/apps/details?id=com.inovasiaktif.twa">
 						<div><b>Inovasi Aktif App</b></div>
-						<span style={{ "fontSize": "10px" }}>Solusi untuk berbagai kebutuhanmu</span>
+						<span style={{ "fontSize": "10px" }}>Dapatkan Hadiah Menarik!</span>
 					</Link>
 				</div>
 				<div className="flex-initial w-64 pl-2 mt-0" style={

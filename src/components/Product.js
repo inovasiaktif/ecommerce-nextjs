@@ -17,7 +17,7 @@ const Product = (props) => {
 					width="308"
 					height="308"
 					loading="lazy"
-					sourceUrl={product?.image?.sourceUrl ?? ''}
+					sourceUrl={product?.image?.sourceUrl ?? process.env.NEXT_PUBLIC_WORDPRESS_URL + "/wp-content/uploads/product-placeholder.png"}
 					defaultImgUrl={DEFAULT_PRODUCT_HOME_IMG_URL}
 					altText={product?.image?.altText ?? product?.slug}
 				/>

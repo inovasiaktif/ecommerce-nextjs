@@ -68,7 +68,13 @@ export default function Product(props) {
 
 function ProductGalleryPopup({ product }) 
 {
-    const rawImages = [{mediaItemUrl: product?.image?.sourceUrl}].concat(product?.galleryImages?.nodes)
+    let rawImages = [];
+    if (product?.image?.sourceUrl) {
+        rawImages = rawImages.concat([{mediaItemUrl: product?.image?.sourceUrl}]).concat(product?.galleryImages?.nodes);
+    } else {
+        rawImages = rawImages.concat([{mediaItemUrl: process.env.NEXT_PUBLIC_WORDPRESS_URL + "/wp-content/uploads/product-placeholder.png"}]);
+    }
+
     const images = rawImages.map((image) => ({
         src: image.mediaItemUrl
     }));
