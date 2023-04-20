@@ -65,20 +65,24 @@ const HomepageMenu = ({ t, isHomepage }) => {
 
     useEffect(()=>{
         const scroll = (event) => {
-        const rawOpacity = Math.round(window.scrollY);
+            const rawOpacity = Math.round(window.scrollY);
 
-        if (rawOpacity <= 0) {
-            setOpacity(0);
-        } else if (rawOpacity >= 90) {
-            setOpacity(90);
-        } else {
-            setOpacity(rawOpacity);
-        }
+            if (rawOpacity <= 0) {
+                setOpacity(0);
+            } else if (rawOpacity >= 90) {
+                setOpacity(90);
+            } else {
+                setOpacity(rawOpacity);
+            }
         }
         window.addEventListener("scroll", scroll, false);
 
         return () => window.removeEventListener("scroll", scroll, false);
     },[]);
+
+    const handleSearch = () => {
+        router.push("/search");
+    }
 
     return (
         <>
@@ -103,7 +107,7 @@ const HomepageMenu = ({ t, isHomepage }) => {
                             }><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                             </button>
                         </span>
-                        <input type="search" name="q" className="search-input py-2 text-sm text-white pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder="Cari produk atau jasa..." autoComplete="off" />
+                        <input type="search" name="q" className="search-input py-2 text-sm text-white pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder="Cari produk atau jasa..." autoComplete="off" onClick={handleSearch}/>
                         </div>
                     </form>
                 </div>
