@@ -6,6 +6,7 @@ import PRODUCTS_AND_CATEGORIES_QUERY from "../src/queries/product-and-categories
 import { Carousel } from 'react-responsive-carousel';
 import React, { useState } from 'react';
 import { getWindowSize } from "../src/functions";
+import { AdUnit } from "@eisberg-labs/next-google-adsense";
 
 export default function Home(props) {
 	const { products, productCategories, heroCarousel } = props || {};
@@ -30,6 +31,12 @@ export default function Home(props) {
 					<img src="/images/banner2.png" style={{ "height": carouselHeight }} />
 				</div>
 			</Carousel>
+			<AdUnit className="adsbygoogle"
+				style={{"display":"block"}}
+				data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_ID}
+				data-ad-slot="2616808837"
+				data-ad-format="auto"
+				data-full-width-responsive="true"/>
 			{/* <HeroCarousel heroCarousel={heroCarousel} /> */}
 			{/* Categories */}
 			<div className="content section-grid flex">

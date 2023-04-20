@@ -7,6 +7,7 @@ import Menu from "./Menu";
 import React from "react";
 import BottomMenu from "./BottomMenu";
 import Script from 'next/script'
+import Adsense from "@eisberg-labs/next-google-adsense";
 
 const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noIndex, t }) => {
   return (
@@ -19,7 +20,7 @@ const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noI
           <meta charSet="utf-8" />
           <meta name="google" content="notranslate" />
           {noIndex && <meta name="robots" content="noindex" />}
-          <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8615035709040167" async="true" crossorigin="anonymous" strategy="beforeInteractive" />
+          <Adsense client_id={process.env.NEXT_PUBLIC_ADSENSE_ID}/>
         </Head>
         <Menu isHomepage={isHomepage} menuTitle={menuTitle} pageType={pageType} />
         <BottomMenu pageType={pageType} product={product} />
