@@ -6,6 +6,7 @@ import { ApolloProvider } from "@apollo/client";
 import Menu from "./Menu";
 import React from "react";
 import BottomMenu from "./BottomMenu";
+import Script from 'next/script'
 
 const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noIndex, t }) => {
   return (
@@ -14,11 +15,11 @@ const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noI
         <Head>
           <title>{title ? title : "Inovasi Aktif - Solusi untuk semua kebutuhanmu"}</title>
           <link rel="shortcut icon" href="/images/logo.png" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+          <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover" />
           <meta charSet="utf-8" />
           <meta name="google" content="notranslate" />
           {noIndex && <meta name="robots" content="noindex" />}
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8615035709040167" crossorigin="anonymous"></script>
+          <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8615035709040167" async="true" crossorigin="anonymous" strategy="beforeInteractive" />
         </Head>
         <Menu isHomepage={isHomepage} menuTitle={menuTitle} pageType={pageType} />
         <BottomMenu pageType={pageType} product={product} />
