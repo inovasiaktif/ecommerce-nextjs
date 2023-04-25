@@ -23,13 +23,13 @@ const MyAccountPage = (props) => {
         <Layout title="Akun Saya" menuTitle="Akun Saya">
 			<div className="content">
             	<div className="pl-3 pt-3"><b>{customer?.displayName}</b></div>
-				<Link href="/sales/order/history" className="horizontal-categories">
+				<Link href="/invest/dashboard" className="horizontal-categories">
 					<div className="section-grid flex pt-5">
 						<div className="title" style={
 							{
 								"fontSize":"14px"
 							}
-						}>Pesanan Saya (0)</div>
+						}>Investasi Saya</div>
 					</div>
 				</Link>
 				<div className="pl-3 pb-5">

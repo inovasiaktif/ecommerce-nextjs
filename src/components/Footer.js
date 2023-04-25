@@ -76,7 +76,7 @@ function AppModal({pageType})
 				}>
 					<Link href="https://play.google.com/store/apps/details?id=com.inovasiaktif.twa">
 						<div><b>Inovasi Aktif App</b></div>
-						<span style={{ "fontSize": "10px" }}>Dapatkan Hadiah Menarik!</span>
+						<span style={{ "fontSize": "10px" }}>Dapatkan promo menarik!</span>
 					</Link>
 				</div>
 				<div className="flex-initial w-64 pl-2 mt-0" style={

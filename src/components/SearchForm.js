@@ -1,43 +1,34 @@
-import Link from 'next/link';
-import { ArrowBackOutline, CartOutline, PersonOutline } from 'react-ionicons';
-import { useRouter } from 'next/router'
-import React, { useContext } from 'react';
-import { AppContext } from './context/AppContext';
-import { getWindowSize } from '../functions';
+import { useRouter } from 'next/router';
+import React, { useContext, useState } from 'react';
 
 const SearchForm = () => {
-    const router = useRouter()
+    
+    const router = useRouter();
+    const [keyword, setKeyword] = useState(null);
 
-    const [cart] = useContext(AppContext);
-    const productsCount = (null !== cart && Object.keys(cart).length) ? cart.totalProductsCount : '';
+    const handleSearch = async (e) => {
+        e.preventDefault();
 
-    const [width] = getWindowSize();
-    const maxWidth = 600;
-
-    let badgesLeft = 512;
-    if (width < maxWidth) {
-        badgesLeft = (width - 88);
+        router.push('?keyword='+keyword);
     }
 
     return (
         <>
-            <div className="product-menu flex">
-                <div className="menu-item w-full">
-                    <a onClick={() => router.back()} className="bg-icon icon">
-                        <ArrowBackOutline color={'white'} height="22px" width="22px" />
-                    </a>
-                </div>
-                <div className="menu-item cart-icon-container">
-                    <Link href="/cart" className="bg-icon icon">
-                        {productsCount ? <span style={{ "left": badgesLeft }} className="cart-badges">{productsCount}</span> : ''}
-                        <CartOutline color={'white'} height="22px" width="22px" />
-                    </Link>
-                </div>
-                <div className="menu-item user-icon-container">
-                    <Link href="/customer/account" className="bg-icon icon">
-                        <PersonOutline color={'white'} height="22px" width="22px" />
-                    </Link>
-                </div>
+            <div className="w-full">
+                <form className="bg-white px-3 py-4 mb-4" onSubmit={handleSearch}>
+                    <div className="relative text-gray-600 focus-within:text-gray-400">
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
+                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" style={
+                                {
+                                    "width":"20px"
+                                }
+                            }><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </button>
+                        </span>
+                        <input className="search-input py-2 text-sm text-white pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder="Cari produk atau jasa..." autoComplete="off" value={keyword} onChange={(e) => setKeyword(e.target.value)} />
+                    </div>
+                </form>
             </div>
         </>
     )
