@@ -1,11 +1,12 @@
 import { gql } from "@apollo/client";
 
 export const INVEST_BALANCE_QUERY = gql` query InvestBalance {
-	investBalance {
+	investment {
     invest_balance
     profit_balance
+    profit_estimation_date
   }
-  investHistory {
+  investmentHistory {
     nodes {
       id
       cash_in

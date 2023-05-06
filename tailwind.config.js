@@ -9,6 +9,9 @@ module.exports = {
     './pages/**/*.js'],
   theme: {
     extend: {
+      colors: {
+        'grey':'#e5e5e5'
+      },
       height: {
         'almost-screen': 'calc(-16rem + 100vh)',
         '308px': '19.25rem',

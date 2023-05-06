@@ -63,6 +63,8 @@ const ProductBottomMenu = ({ product }) => {
         await addToCart();
     };
 
+    return ''
+
     return (
         <>
             <div>
