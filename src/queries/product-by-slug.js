@@ -32,6 +32,31 @@ export const PRODUCT_BY_SLUG_QUERY = gql` query Product($slug: ID!) {
 		price
 		id
 		regularPrice
+		attributes {
+			nodes {
+				id
+				name
+				options
+			}
+		  }
+		variations(first: 99999) {
+			nodes {
+				attributes {
+					nodes {
+			  			id
+			  			name
+			  			value
+					}
+		  		}
+				id
+				name
+				regularPrice
+				image {
+					id
+					sourceUrl
+				}
+		  	}
+		}
 	  }
 	  ... on ExternalProduct {
 		price

@@ -3,6 +3,16 @@ import { isEmpty, isArray } from 'lodash'
 import UseIsomorphicLayoutEffect from './components/UseIsomorphicLayoutEffect';
 import { useState } from 'react';
 
+export const orderingObject = (obj) => {
+	return Object.keys(obj).sort().reduce((res, key) => (res[key] = obj[key], res), {})
+}
+
+export const ucwords = (str) => {
+    return (str + '').replace(/^([a-z])|\s+([a-z])/g, function ($1) {
+        return $1.toUpperCase();
+    });
+}
+
 export const formatPrice = (angka) => {
 	var separator = '';
 

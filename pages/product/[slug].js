@@ -11,6 +11,7 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
 import { useEffect, useRef, useState } from 'react';
+import { orderingObject, ucwords } from '../../src/functions';
 
 export default function Product(props) {
     const { product } = props;
@@ -22,6 +23,72 @@ export default function Product(props) {
     if (router.isFallback) {
         return <div>Loading...</div>
     }
+
+    let defaultRawImages = [];
+
+    if (product?.image?.sourceUrl) {
+        defaultRawImages = defaultRawImages.concat([{mediaItemUrl: product?.image?.sourceUrl}]).concat(product?.galleryImages?.nodes);
+    } else {
+        defaultRawImages = defaultRawImages.concat([{mediaItemUrl: process.env.NEXT_PUBLIC_WORDPRESS_URL + "/wp-content/uploads/product-placeholder.png"}]);
+    }
+
+    const [rawImages, setRawImages] = useState(defaultRawImages);
+
+    const [selectedAttributes, setSelectedAttributes] = useState({});
+    const [price, setPrice] = useState(product?.regularPrice);
+
+    const variationsArray = [];
+
+    const variations = product?.variations?.nodes;
+    
+    if (variations) {
+        variations.map((variation, index) => {
+            const identifier = {};
+
+            variation.attributes.nodes.map((variationAttribute, index) => {
+                const attributeName = ucwords(variationAttribute.name.replace("-", " "));
+
+                identifier[attributeName] = variationAttribute.value;
+            })
+            
+
+            variationsArray.push({
+                "identifier": identifier,
+                "price": variation.regularPrice,
+                "image": variation.image?.sourceUrl
+            });
+        })
+    }
+
+    async function handleSelectAttributes(attributeName, selectedOption) 
+    {
+        let isUnselected = false;
+        
+        if (selectedAttributes[attributeName] && selectedAttributes[attributeName] == selectedOption) {
+            isUnselected = true;
+
+            setPrice(product.regularPrice)
+            setRawImages(defaultRawImages)
+        }
+
+        setSelectedAttributes(selectedAttributes => ({
+            ...selectedAttributes,
+            [attributeName]: isUnselected ? '' : selectedOption,
+        }));
+
+        selectedAttributes[attributeName] = isUnselected ? '' : selectedOption;
+
+        if (variationsArray) {
+            variationsArray.map((variation, index) => {
+                if (JSON.stringify(orderingObject(selectedAttributes)) == JSON.stringify(variation.identifier)) {
+                    setPrice(variation.price)
+                    setRawImages([{mediaItemUrl: variation.image}])
+                }
+            })
+        }
+    }
+
+    
 
     return (
         <Layout title={"Jual " + product && product.name + " | Inovasi Aktif"} pageType="product" product={product}>
@@ -40,7 +107,7 @@ export default function Product(props) {
                                     srcSet={product?.image?.srcSet}
                                 />
                             ) : null} */}
-                            <ProductGalleryPopup product={product} />
+                            <ProductGalleryPopup rawImages={rawImages} />
                         </div>
                         <div className="product-info px-4">
                             {product?.allPaSeller?.nodes && product?.allPaSeller?.nodes.map((seller, index) => (
@@ -54,7 +121,11 @@ export default function Product(props) {
                                 }}
                                 className="product-description mb-5"
                             /> */}
-                            <Price salesPrice={product?.price} regularPrice={product?.regularPrice} />
+                            <Price salesPrice={price} regularPrice={price} />
+                            <ProductAttributes 
+                            product={product} 
+                            selectedAttributes={selectedAttributes}
+                            handleSelectAttributes={handleSelectAttributes} />
                         </div>
                     </div>
 
@@ -66,15 +137,36 @@ export default function Product(props) {
     );
 };
 
-function ProductGalleryPopup({ product }) 
-{
-    let rawImages = [];
-    if (product?.image?.sourceUrl) {
-        rawImages = rawImages.concat([{mediaItemUrl: product?.image?.sourceUrl}]).concat(product?.galleryImages?.nodes);
-    } else {
-        rawImages = rawImages.concat([{mediaItemUrl: process.env.NEXT_PUBLIC_WORDPRESS_URL + "/wp-content/uploads/product-placeholder.png"}]);
-    }
+const ProductAttributes = ({ product, selectedAttributes, handleSelectAttributes }) => {
+    return (
+        <>
+            <div className="mt-3">
+                <hr />
+                <div className="mt-0">
+                    {product?.attributes?.nodes && product.attributes.nodes.map((attribute, index) => (
+                        <div key={index}>
+                            <div className="mb-5">
+                                <div className="mb-4 mt-3"><b>{attribute.name}</b></div>
+                                <div className="container m-auto grid grid-cols-3 gap-x-0 gap-y-2">
+                                    {attribute?.options && attribute.options.map((optionName, index) => (
+                                        <span className={(selectedAttributes[attribute.name] == optionName ? "selected-attribute " : "") + "border border-color-grey p-1 text-center mr-2"} style={
+                                            {
+                                                "fontSize":"12px"
+                                            }
+                                        } key={index} onClick={() => handleSelectAttributes(attribute.name, optionName)}>{optionName}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
+    )
+}
 
+function ProductGalleryPopup({ rawImages }) 
+{
     const images = rawImages.map((image) => ({
         src: image.mediaItemUrl
     }));

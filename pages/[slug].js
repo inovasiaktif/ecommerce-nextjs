@@ -75,7 +75,7 @@ const ChildCategory = ({childCategory}) => {
         <div className="border border-color-grey p-2 text-center color-primary">{childCategory.name} <span style={{
                 "color":"grey",
                 "fontSize":"12px"
-            }}>({childCategory.count+" produk"})</span></div>
+            }}>({childCategory?.count ?? 0 +" produk"})</span></div>
         </Link>
     </>
 }
