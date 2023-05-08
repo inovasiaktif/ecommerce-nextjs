@@ -16,8 +16,6 @@ import { orderingObject, ucwords } from '../../src/functions';
 export default function Product(props) {
     const { product } = props;
 
-    console.log(product)
-
     const router = useRouter()
 
     // If the page is not yet generated, this will be displayed
