@@ -23,7 +23,7 @@ export default function Home(props) {
 	return (
 		<Layout isHomepage={true}>
 			{/*Hero Carousel*/}
-			<Carousel infiniteLoop={true} interval={5000} autoPlay={true} showStatus={false} showThumbs={false} showArrows={false}>
+			<Carousel infiniteLoop={true} interval={5000} autoPlay={true} showStatus={false} showThumbs={false} showArrows={true}>
 				<div>
 					<img src="/images/banner1.png" style={{ "height": carouselHeight }} />
 				</div>
@@ -40,7 +40,7 @@ export default function Home(props) {
 			{/* <HeroCarousel heroCarousel={heroCarousel} /> */}
 			{/* Categories */}
 			<div className="content section-grid flex">
-				<div className="title">Layanan</div>
+				<div className="title">Kategori</div>
 			</div>
 			<ParentCategoriesBlock productCategories={productCategories} />
 			{/*Products*/}
