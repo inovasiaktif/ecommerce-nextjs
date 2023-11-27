@@ -10,14 +10,14 @@ module.exports = {
         scrollRestoration: true
     },
     trailingSlash: true,
-    webpackDevMiddleware: (config) => {
-        config.watchOptions = {
-            poll: 1000,
-            aggregateTimeout: 300,
-        };
+   // webpackDevMiddleware: (config) => {
+     //   config.watchOptions = {
+       //     poll: 1000,
+         //   aggregateTimeout: 300,
+       // };
 
-        return config;
-    },
+       // return config;
+    //},
     sassOptions: {
         includePaths: [path.join(__dirname, "styles")],
     },
