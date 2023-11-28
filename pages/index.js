@@ -23,7 +23,7 @@ export default function Home(props) {
 	return (
 		<Layout isHomepage={true}>
 			{/*Hero Carousel*/}
-			<Carousel infiniteLoop={true} interval={5000} autoPlay={true} showStatus={false} showThumbs={false} showArrows={true}>
+			<Carousel infiniteLoop={true} interval={20000} autoPlay={true} showStatus={false} showThumbs={false} showArrows={true}>
 				<div>
 					<img src="/images/banner1.png" style={{ "height": carouselHeight }} />
 				</div>

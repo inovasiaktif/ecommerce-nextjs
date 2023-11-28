@@ -33,7 +33,7 @@ const Footer = ({pageType}) => {
 							<Link href="/term-conditions" className="color-primary">Syarat dan Ketentuan</Link>
 						</span>
 					</div>
-					<p>Copyright © 2023 Inovasi Aktif. All rights reserved.</p>
+					<p>Copyright © 2023 Inovasi Online. All rights reserved.</p>
 				</div>
 			</div>
 		</div>

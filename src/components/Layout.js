@@ -14,7 +14,7 @@ const Layout = ({ pageType, title, isHomepage, menuTitle, children, product, noI
     <AppProvider>
       <ApolloProvider client={client}>
         <Head>
-          <title>{title ? title : "Inovasi Aktif - Solusi untuk semua kebutuhanmu"}</title>
+          <title>{title ? title : "Inovasi Online - Inovasi untuk kemudahan online"}</title>
           <link rel="shortcut icon" href="/images/logo.png" />
           <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover" />
           <meta charSet="utf-8" />
