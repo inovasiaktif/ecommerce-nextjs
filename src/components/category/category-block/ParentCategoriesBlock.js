@@ -23,12 +23,12 @@ const ParentCategoriesBlock = (props) => {
 								key={index}
 							/>
 						))}
-						{!categoryView && <Card
+						{/* {!categoryView && <Card
 							itemId="353"
 							title="Lainnya"
 							image={otherImage}
 							slug="category"
-						/>}
+						/>} */}
 					</ScrollMenu> : ''
 				}
 			</div>
