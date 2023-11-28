@@ -1,15 +1,12 @@
-.idea/
-*.log
-npm-debug.log
-yarn-error.log
-.DS_Store
-build/
-node_modules/
-dist/
-.cache
-.next
-.env
-.now
-.yarn
-public/sitemap.xml
-public/sitemap-0.xml
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
